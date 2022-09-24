@@ -8,7 +8,11 @@ GameScene::GameScene()
 
 void GameScene::Demo()
 {
-
+    int ret = 0;
+    if (ret == 0)
+    {
+        m_state = TITLE;
+    }
 }
 
 void GameScene::Title()
@@ -35,6 +39,22 @@ void GameScene::Game()
 
 bool GameScene::Update()
 {
-    return 0;
+    switch (m_state)
+    {
+    case GameScene::DEMO:
+        Demo();
+        break;
+    case GameScene::TITLE:
+        Title();
+        break;
+    case GameScene::GAME:
+        Game();
+        break;
+    case GameScene::RESULT:
+        break;
+    default:
+        break;
+    }
+    return m_isEnd;
 }
 
