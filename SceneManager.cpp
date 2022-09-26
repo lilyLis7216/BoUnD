@@ -3,6 +3,8 @@
 #include "Game.h"
 #include "Config.h"
 
+
+
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -39,7 +41,7 @@ void SceneManager::Update()
     switch (nowScene)
     {
     case SceneManager::Scene_Menu:
-        Menu::Update();
+
         break;
     case SceneManager::Scene_Game:
         Game::Update();
@@ -61,7 +63,7 @@ void SceneManager::Draw()
     switch (nowScene)
     {
     case SceneManager::Scene_Menu:
-        Menu::Draw();
+
         break;
     case SceneManager::Scene_Game:
         Game::Draw();
@@ -93,7 +95,7 @@ void SceneManager::InitModule(SceneState scene)
     switch (scene)
     {
     case SceneManager::Scene_Menu:
-        Menu::Initialize();
+
         break;
     case SceneManager::Scene_Game:
         Game::Initialize();
@@ -114,7 +116,7 @@ void SceneManager::FinModule(SceneState scene)
     switch (scene)
     {
     case SceneManager::Scene_Menu:
-        Menu::Finalize();
+
         break;
     case SceneManager::Scene_Game:
         Game::Finalize();

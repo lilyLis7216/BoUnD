@@ -23,7 +23,7 @@ public:
     static void InitModule(SceneState scene);  // 指定モジュールの初期化
     static void FinModule(SceneState scene);   // 指定モジュールの後始末
 
-private:
+
     //! 現シーンの管理変数
     static SceneState nowScene;
 
