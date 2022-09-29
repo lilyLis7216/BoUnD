@@ -1,10 +1,13 @@
 #pragma once
+#include "BaseScene.h"
 
-class Config
+class Config : public BaseScene
 {
 public:
-    static void Initialize();
-    static void Update();
-    static void Draw();
-    static void Finalize();
+    Config();
+    ~Config();
+
+    void Update() override;
+    void Draw()   override;
+
 };
