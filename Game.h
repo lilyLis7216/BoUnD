@@ -1,10 +1,16 @@
 #pragma once
+#include "BaseScene.h"
+#include "Player.h"
 
-class Game
+class Game : public BaseScene
 {
 public:
-    static void Initialize();
-    static void Update();
-    static void Draw();
-    static void Finalize();
+    Game();
+    ~Game();
+
+    void Update() override;
+    void Draw()   override;
+
+    static Player* p;
+
 };
