@@ -1,11 +1,12 @@
 #pragma once
 #include "BaseScene.h"
 
-class Menu
+class Menu : public BaseScene
 {
 public:
-    static void Initialize();
-    static void Update();
-    static void Draw();
-    static void Finalize();
+    Menu();
+    ~Menu();
+
+    void Update() override;
+    void Draw()   override;
 };
