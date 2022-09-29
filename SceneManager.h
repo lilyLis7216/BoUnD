@@ -3,14 +3,14 @@
 class SceneManager
 {
 public:
-    typedef enum SceneState
+    enum class SceneState
     {
-        Scene_Menu,    // メニュー画面
-        Scene_Game,    // ゲーム画面
-        Scene_Config,  // 設定画面
+        Scene_None = 0,  // 無し
+        Scene_Menu,      // メニュー画面
+        Scene_Game,      // ゲーム画面
+        Scene_Config,    // 設定画面
 
-        Scene_None,    // 無し
-    }SceneState;
+    };
 
     SceneManager();
     ~SceneManager();

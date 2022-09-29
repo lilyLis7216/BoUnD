@@ -7,11 +7,11 @@
 //--------------------------------------------------------------------------------------------------------------------------------
 
 
-Menu::Menu()
+void Menu::Initialize()
 {
 }
 
-Menu::~Menu()
+void Menu::Finalize()
 {
 }
 
@@ -24,14 +24,14 @@ void Menu::Update()
     if (CheckHitKey(KEY_INPUT_G))
     {
         // シーンをゲーム画面に変更
-        SceneManager::ChangeScene(SceneManager::Scene_Game);
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Game);
     }
 
     // Cキーが押されたら
     if (CheckHitKey(KEY_INPUT_C))
     {
         // シーンを設定画面に変更
-        SceneManager::ChangeScene(SceneManager::Scene_Config);
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Config);
     }
 }
 

@@ -18,7 +18,7 @@ void Game::Update()
     if (CheckHitKey(KEY_INPUT_M))
     {
         // シーンをメニューに変更
-        SceneManager::ChangeScene(SceneManager::Scene_Menu);
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
     }
 }
 
@@ -28,7 +28,7 @@ void Game::Update()
 void Game::Draw()
 {
     DrawString(0, 0, "ゲーム画面です。", GetColor(255, 255, 255));
-    DrawString(0, 0, "Mキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
+    DrawString(0, 20, "Mキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------

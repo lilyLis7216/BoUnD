@@ -3,15 +3,16 @@
 #include "Game.h"
 #include "Config.h"
 
-
+SceneManager::SceneState SceneManager::nowScene = SceneManager::SceneState::Scene_Menu;
+SceneManager::SceneState SceneManager::nextScene = SceneManager::SceneState::Scene_None;
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
 //--------------------------------------------------------------------------------------------------------------------------------
 SceneManager::SceneManager()
 {
-    nowScene  = Scene_Menu;
-    nextScene = Scene_None;
+    nowScene  = SceneState::Scene_Menu;
+    nextScene = SceneState::Scene_None;
     InitModule(nowScene);
 }
 
@@ -29,24 +30,24 @@ SceneManager::~SceneManager()
 void SceneManager::Update()
 {
     // 次のシーンがセットされていたら
-    if (nextScene != Scene_None)
+    if (nextScene != SceneState::Scene_None)
     {
         FinModule(nowScene);     // 現在のシーンの終了処理を実行
         nowScene = nextScene;    // 次のシーンを現在のシーンをセット
-        nextScene = Scene_None;  // 次のシーン情報をクリア
+        nextScene = SceneState::Scene_None;  // 次のシーン情報をクリア
         InitModule(nowScene);    // 現在のシーンを初期化
     }
 
     // 現在のシーンによって処理を分岐
     switch (nowScene)
     {
-    case SceneManager::Scene_Menu:
-
+    case SceneState::Scene_Menu:
+        Menu::Update();
         break;
-    case SceneManager::Scene_Game:
+    case SceneState::Scene_Game:
         Game::Update();
         break;
-    case SceneManager::Scene_Config:
+    case SceneState::Scene_Config:
         Config::Update();
         break;
     default:
@@ -62,13 +63,13 @@ void SceneManager::Draw()
     // 現在のシーンによって処理を分岐
     switch (nowScene)
     {
-    case SceneManager::Scene_Menu:
-
+    case SceneState::Scene_Menu:
+        Menu::Draw();
         break;
-    case SceneManager::Scene_Game:
+    case SceneState::Scene_Game:
         Game::Draw();
         break;
-    case SceneManager::Scene_Config:
+    case SceneState::Scene_Config:
         Config::Draw();
         break;
     default:
@@ -94,13 +95,13 @@ void SceneManager::InitModule(SceneState scene)
     // シーンによって処理を分岐
     switch (scene)
     {
-    case SceneManager::Scene_Menu:
-
+    case SceneState::Scene_Menu:
+        Menu::Initialize();
         break;
-    case SceneManager::Scene_Game:
+    case SceneState::Scene_Game:
         Game::Initialize();
         break;
-    case SceneManager::Scene_Config:
+    case SceneState::Scene_Config:
         Config::Initialize();
         break;
     default:
@@ -115,13 +116,13 @@ void SceneManager::FinModule(SceneState scene)
 {
     switch (scene)
     {
-    case SceneManager::Scene_Menu:
-
+    case SceneState::Scene_Menu:
+        Menu::Finalize();
         break;
-    case SceneManager::Scene_Game:
+    case SceneState::Scene_Game:
         Game::Finalize();
         break;
-    case SceneManager::Scene_Config:
+    case SceneState::Scene_Config:
         Config::Finalize();
         break;
     default:

@@ -13,7 +13,7 @@ void Config::Update()
     if (CheckHitKey(KEY_INPUT_M))
     {
         // シーンをメニューに変更
-        SceneManager::ChangeScene(SceneManager::Scene_Menu);
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
     }
 }
 
