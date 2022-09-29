@@ -1,4 +1,7 @@
 #pragma once
+#include "Menu.h"
+#include "Game.h"
+#include "Config.h"
 
 class SceneManager
 {
@@ -29,4 +32,10 @@ public:
 
     //! Ÿ‚ÌƒV[ƒ“‚ÌŠÇ—•Ï”
     static SceneState nextScene;
+
+    static Menu* menuScene;
+
+    static Game* gameScene;
+
+    static Config* configScene;
 };

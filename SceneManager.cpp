@@ -1,10 +1,11 @@
 #include "SceneManager.h"
-#include "Menu.h"
-#include "Game.h"
-#include "Config.h"
 
 SceneManager::SceneState SceneManager::nowScene = SceneManager::SceneState::Scene_Menu;
 SceneManager::SceneState SceneManager::nextScene = SceneManager::SceneState::Scene_None;
+
+Menu* SceneManager::menuScene     = nullptr;
+Game* SceneManager::gameScene     = nullptr;
+Config* SceneManager::configScene = nullptr;
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
@@ -42,13 +43,13 @@ void SceneManager::Update()
     switch (nowScene)
     {
     case SceneState::Scene_Menu:
-        Menu::Update();
+        menuScene->Update();
         break;
     case SceneState::Scene_Game:
-        Game::Update();
+        gameScene->Update();
         break;
     case SceneState::Scene_Config:
-        Config::Update();
+        configScene->Update();
         break;
     default:
         break;
@@ -64,13 +65,13 @@ void SceneManager::Draw()
     switch (nowScene)
     {
     case SceneState::Scene_Menu:
-        Menu::Draw();
+        menuScene->Draw();
         break;
     case SceneState::Scene_Game:
-        Game::Draw();
+        gameScene->Draw();
         break;
     case SceneState::Scene_Config:
-        Config::Draw();
+        configScene->Draw();
         break;
     default:
         break;
@@ -96,13 +97,13 @@ void SceneManager::InitModule(SceneState scene)
     switch (scene)
     {
     case SceneState::Scene_Menu:
-        Menu::Initialize();
+        menuScene = new Menu();
         break;
     case SceneState::Scene_Game:
-        Game::Initialize();
+        gameScene = new Game();
         break;
     case SceneState::Scene_Config:
-        Config::Initialize();
+        configScene = new Config();
         break;
     default:
         break;
@@ -117,13 +118,13 @@ void SceneManager::FinModule(SceneState scene)
     switch (scene)
     {
     case SceneState::Scene_Menu:
-        Menu::Finalize();
+        delete menuScene;
         break;
     case SceneState::Scene_Game:
-        Game::Finalize();
+        delete gameScene;
         break;
     case SceneState::Scene_Config:
-        Config::Finalize();
+        delete configScene;
         break;
     default:
         break;
