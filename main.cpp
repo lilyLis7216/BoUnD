@@ -6,7 +6,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
     // DxLib‰Šú‰»
     ChangeWindowMode(TRUE);
-    SetGraphMode(1440, 900, 16);
+    SetGraphMode(1920, 1080, 32);
     if (DxLib_Init() == -1)return -1;
 
     SceneManager* sm = new SceneManager();
@@ -20,7 +20,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         ClearDrawScreen();
 
         sm->Draw();
-        
+
         ScreenFlip();
     }
 
