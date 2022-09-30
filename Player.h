@@ -12,4 +12,7 @@ public:
 
 private:
     void Move();
+
+    //! Žc‹@
+    int life;
 };
