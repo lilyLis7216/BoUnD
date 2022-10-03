@@ -11,6 +11,9 @@ public:
     void Update() override;
     void Draw()   override;
 
-    static Player* p;
+    static Player* player;
+    class FrameRate* frameRate;
+    class Background* bg;
+    class FallObj* fo;
 
 };
