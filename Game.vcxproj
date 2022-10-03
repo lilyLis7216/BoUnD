@@ -133,9 +133,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="FallObj.cpp" />
     <ClCompile Include="FrameRate.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -144,9 +146,11 @@
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Background.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BaseScene.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="FallObj.h" />
     <ClInclude Include="FrameRate.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Menu.h" />
