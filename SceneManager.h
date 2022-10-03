@@ -12,7 +12,6 @@ public:
         Scene_Menu,      // メニュー画面
         Scene_Game,      // ゲーム画面
         Scene_Config,    // 設定画面
-
     };
 
     SceneManager();
@@ -33,9 +32,12 @@ public:
     //! 次のシーンの管理変数
     static SceneState nextScene;
 
+    //! メニューシーン管理変数
     static Menu* menuScene;
 
+    //! ゲームシーン管理変数
     static Game* gameScene;
 
+    //! コンフィグシーン管理変数
     static Config* configScene;
 };
