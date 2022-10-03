@@ -12,9 +12,9 @@ Player* Game::player = nullptr;
 //--------------------------------------------------------------------------------------------------------------------------------
 Game::Game()
 {
-    player = new Player();
-    frameRate = new FrameRate();
-    bg = new Background();
+    player = new Player;
+    frameRate = new FrameRate;
+    bg = new Background;
     fo = nullptr;
 }
 
@@ -35,12 +35,12 @@ void Game::Update()
 {
     if (fo == nullptr)
     {
-        fo = new FallObj();
+        fo = new FallObj;
     }
     frameRate->Update();
     player->Update(frameRate->GetDeltaTime());
     fo->Update(frameRate->GetDeltaTime());
-    if (fo->GetPosY() > 980)
+    if (fo->GetPosX() > 1500 && fo->GetPosY() > 980)
     {
         delete fo;
         fo = nullptr;
