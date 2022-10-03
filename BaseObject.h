@@ -6,7 +6,7 @@ public:
     BaseObject();
     virtual ~BaseObject();
 
-    virtual void Update() = 0;
+    virtual void Update(float deltaTime) = 0;
     virtual void Draw();
 
 protected:
