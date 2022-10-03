@@ -1,8 +1,8 @@
 #include "SceneManager.h"
 
+// ŠÇ—•Ï”‚½‚¿‚Ì‰Šú‰»
 SceneManager::SceneState SceneManager::nowScene = SceneManager::SceneState::Scene_Menu;
 SceneManager::SceneState SceneManager::nextScene = SceneManager::SceneState::Scene_None;
-
 Menu* SceneManager::menuScene     = nullptr;
 Game* SceneManager::gameScene     = nullptr;
 Config* SceneManager::configScene = nullptr;
