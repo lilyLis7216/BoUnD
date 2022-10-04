@@ -8,7 +8,10 @@ public:
     ~Player();
 
     void Update(float deltaTime) override;
-    void Draw()   override;
+    void Draw() override;
+
+    float GetHalfScaleX() const { return halfScaleX; }
+    float GetHalfScaleY() const { return halfScaleY; }
 
 private:
     void Move(float deltaTime);
