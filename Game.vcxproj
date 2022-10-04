@@ -136,6 +136,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BaseScene.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="FallObj.cpp" />
     <ClCompile Include="FrameRate.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BaseScene.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="FallObj.h" />
     <ClInclude Include="FrameRate.h" />
