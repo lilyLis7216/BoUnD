@@ -9,7 +9,10 @@ public:
     Collision();
     ~Collision();
 
-    void Coll(Player* player, FallObj* obj);
+    void Coll(float aPosX, float aPosY, float aScaleX, float aScaleY,
+              float bPosX, float bPosY, float bScaleX, float bScaleY);
+
+    void Coll(Player* player, FallObj* fallObj);
 
 private:
 };
