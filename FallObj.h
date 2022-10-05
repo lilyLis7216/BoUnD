@@ -10,8 +10,10 @@ public:
     void Update(float deltaTime) override;
     void Draw() override;
 
-    float GetPosX() const { return posX; }
-    float GetPosY() const { return posY; }
+    float GetHalfScaleX() const { return halfScaleX; }
+    float GetHalfScaleY() const { return halfScaleY; }
+
+    void OnHit(bool flag) { isBound = flag; }
 
 private:
     //! ‘¬“x
@@ -20,4 +22,7 @@ private:
     bool isBound;
 
     float jumpPower;
+
+    float halfScaleX;
+    float halfScaleY;
 };

@@ -41,6 +41,7 @@ void Player::Update(float deltaTime)
 void Player::Draw()
 {
     DrawRotaGraph((int)posX, (int)posY, scaling, 0, image, TRUE);
+    DrawFormatString(0, 100, GetColor(0, 0, 0), "playerX:%5.4f", posX);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
