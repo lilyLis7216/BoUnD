@@ -4,6 +4,7 @@
 #include "FrameRate.h"
 #include "Background.h"
 #include "FallObj.h"
+#include "Collision.h"
 
 Player* Game::player = nullptr;
 
@@ -16,6 +17,7 @@ Game::Game()
     frameRate = new FrameRate;
     bg = new Background;
     fo = nullptr;
+    coll = new Collision;
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -26,6 +28,7 @@ Game::~Game()
     delete player;
     delete frameRate;
     delete bg;
+    delete coll;
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -39,8 +42,12 @@ void Game::Update()
     }
     frameRate->Update();
     player->Update(frameRate->GetDeltaTime());
+    if (fo != nullptr)
+    {
+        coll->Coll(player, fo);
+    }
     fo->Update(frameRate->GetDeltaTime());
-    if (fo->GetPosX() > 1500 && fo->GetPosY() > 980)
+    if (fo->GetPosX() > 1500 || fo->GetPosY() > 1080)
     {
         delete fo;
         fo = nullptr;

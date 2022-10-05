@@ -15,5 +15,6 @@ public:
     class FrameRate* frameRate;
     class Background* bg;
     class FallObj* fo;
+    class Collision* coll;
 
 };
