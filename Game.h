@@ -14,7 +14,10 @@ public:
     static Player* player;
     class FrameRate* frameRate;
     class Background* bg;
-    class FallObj* fo;
+    class Acrobat* fo;
     class Collision* coll;
+    class Ruler* ruler;
 
+private:
+    float deltaTime;
 };

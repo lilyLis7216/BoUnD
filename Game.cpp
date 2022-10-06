@@ -1,10 +1,11 @@
 #include "Game.h"
 #include "DxLib.h"
-#include "SceneManager.h"
 #include "FrameRate.h"
+#include "SceneManager.h"
 #include "Background.h"
-#include "FallObj.h"
+#include "Acrobat.h"
 #include "Collision.h"
+#include "Ruler.h"
 
 Player* Game::player = nullptr;
 
@@ -12,12 +13,14 @@ Player* Game::player = nullptr;
 // @brief コンストラクタ
 //--------------------------------------------------------------------------------------------------------------------------------
 Game::Game()
+    :deltaTime(0)
 {
-    player = new Player;
-    frameRate = new FrameRate;
-    bg = new Background;
+    player = new Player();
+    frameRate = new FrameRate();
+    bg = new Background();
     fo = nullptr;
-    coll = new Collision;
+    coll = new Collision();
+    ruler = new Ruler();
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -29,6 +32,7 @@ Game::~Game()
     delete frameRate;
     delete bg;
     delete coll;
+    delete ruler;
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -36,27 +40,35 @@ Game::~Game()
 //--------------------------------------------------------------------------------------------------------------------------------
 void Game::Update()
 {
+    frameRate->Update();
+    deltaTime = frameRate->GetDeltaTime();
+    ruler->Update(deltaTime);
+    player->Update(deltaTime);
+
     if (fo == nullptr)
     {
-        fo = new FallObj;
+        fo = new Acrobat();
     }
-    frameRate->Update();
-    player->Update(frameRate->GetDeltaTime());
     if (fo != nullptr)
     {
         coll->Coll(player, fo);
     }
-    fo->Update(frameRate->GetDeltaTime());
+    fo->Update(deltaTime);
     if (fo->GetPosX() > 1500 || fo->GetPosY() > 1080)
     {
         delete fo;
         fo = nullptr;
+        //player->Miss();
     }
     // Mキーが押されたら 
     if (CheckHitKey(KEY_INPUT_M))
     {
         // シーンをメニューに変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
+    }
+    if (player->GetLife() < 0 || ruler->GetTimer() < 0)
+    {
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
     }
 }
 
@@ -68,7 +80,8 @@ void Game::Draw()
     bg->Draw();
     DrawString(0, 0, "ゲーム画面です。", GetColor(255, 255, 255));
     DrawString(0, 20, "Mキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
-    DrawFormatString(200, 0, GetColor(255, 255, 255), "FPS:%5.4f", frameRate->GetDeltaTime());
+    DrawFormatString(200, 0, GetColor(255, 255, 255), "FPS:%5.4f", deltaTime);
+    DrawFormatString(0, 40, GetColor(255, 255, 255), "%f", ruler->GetTimer());
 
     if (fo != nullptr)fo->Draw();
 
