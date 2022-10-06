@@ -1,11 +1,11 @@
 #pragma once
 #include "BaseObject.h"
 
-class FallObj : public BaseObject
+class Acrobat : public BaseObject
 {
 public:
-    FallObj();
-    ~FallObj();
+    Acrobat();
+    ~Acrobat();
 
     void Update(float deltaTime) override;
     void Draw() override;
@@ -25,4 +25,6 @@ private:
 
     float halfScaleX;
     float halfScaleY;
+
+    int tmpCount;
 };
