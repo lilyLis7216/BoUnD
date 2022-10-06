@@ -98,8 +98,5 @@
     <ClInclude Include="Ruler.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
