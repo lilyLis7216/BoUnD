@@ -23,7 +23,7 @@ void Collision::Coll(float aPosX, float aPosY, float aScaleX, float aScaleY, flo
 
 void Collision::Coll(Player* player, Acrobat* fallObj)
 {
-    if ((player->GetPosX() < fallObj->GetPosX() && player->GetPosX() + player->GetHalfScaleX() >= fallObj->GetPosX()) && player->GetPosY() <= fallObj->GetPosY() + fallObj->GetHalfScaleY())
+    if ((player->GetPosX() < fallObj->GetPosX() && player->GetPosX() + player->GetHalfScaleX() >= fallObj->GetPosX()) && player->GetPosY() - player->GetHalfScaleY() <= fallObj->GetPosY() + fallObj->GetHalfScaleY())
     {
         fallObj->OnHit(true);
         printfDx("“–‚½‚Á‚½");

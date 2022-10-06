@@ -10,7 +10,7 @@ Player::Player()
     posX = 960.0f;
     posY = 910.0f;
     scaleX = 100.0f;
-    scaleY = 25.0f;
+    scaleY = 50.0f;
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
     speed = 300.0f;

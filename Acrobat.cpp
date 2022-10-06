@@ -54,3 +54,8 @@ void Acrobat::Draw()
     DrawFormatString(0, 140, GetColor(0, 0, 0), "fallObjX:%5.4f", posX);
     DrawFormatString(0, 160, GetColor(0, 0, 0), "fallObjY:%5.4f", posY);
 }
+
+void Acrobat::OnHit(bool flag)
+{
+    isBound = flag;
+}
