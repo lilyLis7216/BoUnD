@@ -1,7 +1,8 @@
 #include "Collision.h"
 #include "Player.h"
-#include "FallObj.h"
+#include "Acrobat.h"
 #include "DxLib.h"
+#include <math.h>
 
 Collision::Collision()
 {
@@ -20,16 +21,21 @@ void Collision::Coll(float aPosX, float aPosY, float aScaleX, float aScaleY, flo
     }
 }
 
-void Collision::Coll(Player* player, FallObj* fallObj)
+void Collision::Coll(Player* player, Acrobat* fallObj)
 {
-    if (((player->GetPosX() + player->GetHalfScaleX() < fallObj->GetPosX() - fallObj->GetHalfScaleX()) || (player->GetPosX() - player->GetHalfScaleX() > fallObj->GetPosX() + fallObj->GetHalfScaleX())) &&
-        ((player->GetPosY() + player->GetHalfScaleY() < fallObj->GetPosY() - fallObj->GetHalfScaleY()) || (player->GetPosY() - player->GetHalfScaleY() > fallObj->GetPosY() + fallObj->GetHalfScaleY())))
-    {
-        // “–‚½‚Á‚Ä‚¢‚È‚¢
-    }
-    else
+    if ((player->GetPosX() < fallObj->GetPosX() && player->GetPosX() + player->GetHalfScaleX() >= fallObj->GetPosX()) && player->GetPosY() <= fallObj->GetPosY() + fallObj->GetHalfScaleY())
     {
         fallObj->OnHit(true);
         printfDx("“–‚½‚Á‚½");
     }
+
+    /*if ((player->GetPosX() - player->GetHalfScaleX() < fallObj->GetPosX() - fallObj->GetHalfScaleX() && fallObj->GetPosX() - fallObj->GetHalfScaleX() < player->GetPosX() + player->GetHalfScaleX()) ||
+        (player->GetPosX() + player->GetHalfScaleX() > fallObj->GetPosX() + fallObj->GetHalfScaleX() && fallObj->GetPosX() + fallObj->GetHalfScaleX() > player->GetPosX() - player->GetHalfScaleX()))
+    {
+        if (player->GetPosY() - player->GetHalfScaleY() < fallObj->GetPosY() + fallObj->GetHalfScaleY() && fallObj->GetPosY() + fallObj->GetHalfScaleY() < player->GetPosY() + player->GetHalfScaleY())
+        {
+            fallObj->OnHit(true);
+            printfDx("“–‚½‚Á‚½");
+        }
+    }*/
 }

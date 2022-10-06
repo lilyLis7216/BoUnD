@@ -1,7 +1,7 @@
 #pragma once
 
 class Player;
-class FallObj;
+class Acrobat;
 
 class Collision
 {
@@ -12,7 +12,6 @@ public:
     void Coll(float aPosX, float aPosY, float aScaleX, float aScaleY,
               float bPosX, float bPosY, float bScaleX, float bScaleY);
 
-    void Coll(Player* player, FallObj* fallObj);
-
+    void Coll(Player* player, Acrobat* fallObj);
 private:
 };

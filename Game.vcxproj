@@ -138,12 +138,14 @@
     <ClCompile Include="BaseScene.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Config.cpp" />
-    <ClCompile Include="FallObj.cpp" />
+    <ClCompile Include="Acrobat.cpp" />
     <ClCompile Include="FrameRate.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Result.cpp" />
+    <ClCompile Include="Ruler.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,12 +153,15 @@
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BaseScene.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="common.h" />
     <ClInclude Include="Config.h" />
-    <ClInclude Include="FallObj.h" />
+    <ClInclude Include="Acrobat.h" />
     <ClInclude Include="FrameRate.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Result.h" />
+    <ClInclude Include="Ruler.h" />
     <ClInclude Include="SceneManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

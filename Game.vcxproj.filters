@@ -45,10 +45,16 @@
     <ClCompile Include="Background.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="FallObj.cpp">
+    <ClCompile Include="Acrobat.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Collision.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Result.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Ruler.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,10 +86,19 @@
     <ClInclude Include="Background.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="FallObj.h">
+    <ClInclude Include="Acrobat.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Result.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Ruler.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
