@@ -13,6 +13,9 @@ public:
     float GetHalfScaleX() const { return halfScaleX; }
     float GetHalfScaleY() const { return halfScaleY; }
 
+    void Miss() { life--; }
+    int GetLife() const { return life; }
+
 private:
     void Move(float deltaTime);
 
