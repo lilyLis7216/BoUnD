@@ -1,4 +1,8 @@
 #include "SceneManager.h"
+#include "Menu.h"
+#include "Game.h"
+#include "Config.h"
+#include "Result.h"
 
 // 管理変数たちの初期化
 SceneManager::SceneState SceneManager::nowScene = SceneManager::SceneState::Scene_Menu;
@@ -6,6 +10,7 @@ SceneManager::SceneState SceneManager::nextScene = SceneManager::SceneState::Sce
 Menu* SceneManager::menuScene     = nullptr;
 Game* SceneManager::gameScene     = nullptr;
 Config* SceneManager::configScene = nullptr;
+Result* SceneManager::resultScene = nullptr;
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
@@ -51,6 +56,9 @@ void SceneManager::Update()
     case SceneState::Scene_Config:
         configScene->Update();
         break;
+    case SceneState::Scene_Result:
+        resultScene->Update();
+        break;
     default:
         break;
     }
@@ -72,6 +80,9 @@ void SceneManager::Draw()
         break;
     case SceneState::Scene_Config:
         configScene->Draw();
+        break;
+    case SceneState::Scene_Result:
+        resultScene->Draw();
         break;
     default:
         break;
@@ -105,6 +116,8 @@ void SceneManager::InitModule(SceneState scene)
     case SceneState::Scene_Config:
         configScene = new Config();
         break;
+    case SceneState::Scene_Result:
+        resultScene = new Result();
     default:
         break;
     }
@@ -126,6 +139,8 @@ void SceneManager::FinModule(SceneState scene)
     case SceneState::Scene_Config:
         delete configScene;
         break;
+    case SceneState::Scene_Result:
+        delete resultScene;
     default:
         break;
     }

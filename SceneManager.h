@@ -1,7 +1,10 @@
 #pragma once
-#include "Menu.h"
-#include "Game.h"
-#include "Config.h"
+
+// 前方宣言
+class Menu;
+class Game;
+class Config;
+class Result;
 
 class SceneManager
 {
@@ -11,7 +14,8 @@ public:
         Scene_None = 0,  // 無し
         Scene_Menu,      // メニュー画面
         Scene_Game,      // ゲーム画面
-        Scene_Config,    // 設定画面
+        Scene_Config,    // コンフィグ画面
+        Scene_Result,    // リザルト画面
     };
 
     SceneManager();
@@ -40,4 +44,7 @@ public:
 
     //! コンフィグシーン管理変数
     static Config* configScene;
+
+    //! リザルトシーン管理変数
+    static Result* resultScene;
 };
