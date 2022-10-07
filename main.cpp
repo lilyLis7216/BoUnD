@@ -9,22 +9,22 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     SetGraphMode(1920, 1080, 32);
     if (DxLib_Init() == -1)return -1;
 
-    SceneManager* sm = new SceneManager();
+    SceneManager::CreateInstance();
 
     // ゲームループ
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
     {
-        sm->Update();
+        SceneManager::Update();
 
         //画面更新処理
         ClearDrawScreen();
 
-        sm->Draw();
+        SceneManager::Draw();
 
         ScreenFlip();
     }
 
-    delete sm;
+    SceneManager::DeleteInstance();
 
     DxLib_End();
     return 0;

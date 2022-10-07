@@ -6,7 +6,7 @@ class Game;
 class Config;
 class Result;
 
-class SceneManager
+class SceneManager final
 {
 public:
     enum class SceneState
@@ -18,33 +18,34 @@ public:
         Scene_Result,    // リザルト画面
     };
 
-    SceneManager();
-    ~SceneManager();
+    static void CreateInstance();
 
-    void Update();
-    void Draw();
+    static void DeleteInstance();
+
+    static void Update();
+    static void Draw();
 
     static void ChangeScene(SceneState nextScene);
 
     static void InitModule(SceneState scene);  // 指定モジュールの初期化
     static void FinModule(SceneState scene);   // 指定モジュールの後始末
 
-
     //! 現シーンの管理変数
     static SceneState nowScene;
-
     //! 次のシーンの管理変数
     static SceneState nextScene;
-
     //! メニューシーン管理変数
     static Menu* menuScene;
-
     //! ゲームシーン管理変数
     static Game* gameScene;
-
     //! コンフィグシーン管理変数
     static Config* configScene;
-
     //! リザルトシーン管理変数
     static Result* resultScene;
+private:
+    // シングルトン
+    SceneManager();
+    ~SceneManager();
+
+    static SceneManager* instance;
 };
