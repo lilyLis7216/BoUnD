@@ -1,6 +1,7 @@
 #include <windows.h>
 #include "DxLib.h"
 #include "SceneManager.h"
+#include "GameManager.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -10,6 +11,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     if (DxLib_Init() == -1)return -1;
 
     SceneManager::CreateInstance();
+    GameManager::CreateInstance();
+    
 
     // ÉQÅ[ÉÄÉãÅ[Év
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
@@ -25,6 +28,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     }
 
     SceneManager::DeleteInstance();
+    GameManager::DeleteInstance();
 
     DxLib_End();
     return 0;
