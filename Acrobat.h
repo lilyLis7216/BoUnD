@@ -13,7 +13,7 @@ public:
     float GetHalfScaleX() const { return halfScaleX; }
     float GetHalfScaleY() const { return halfScaleY; }
 
-    void OnHit(bool flag);
+    void SetBound(bool flag);
 
 private:
     //! ‘¬“x

@@ -11,7 +11,7 @@ Acrobat::Acrobat()
     halfScaleY = scaleY / 2;
     speed = 200.0f;
     isBound = false;
-    jumpPower = 0;
+    jumpPower = -7.5f;
     tmpCount = 0;
     image = LoadGraph("Assets/Acrobat/test.png");
 }
@@ -24,19 +24,12 @@ void Acrobat::Update(float deltaTime)
 {
     posX += speed * deltaTime;
     
-    if (posY > 980)
-    {
-        //isBound = true;
-    }
-    else
+    if (posY < 980)
     {
         isBound = false;
     }
     if (isBound)
     {
-        /*if (jumpPower > 0)
-        {
-        }*/
         jumpPower = -15.0f;
     }
     else
@@ -55,7 +48,7 @@ void Acrobat::Draw()
     DrawFormatString(0, 160, GetColor(0, 0, 0), "fallObjY:%5.4f", posY);
 }
 
-void Acrobat::OnHit(bool flag)
+void Acrobat::SetBound(bool flag)
 {
     isBound = flag;
 }
