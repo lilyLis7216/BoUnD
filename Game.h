@@ -16,7 +16,6 @@ public:
     class Background* bg;
     class Acrobat* fo;
     class Collision* coll;
-    class Ruler* ruler;
 
 private:
     float deltaTime;

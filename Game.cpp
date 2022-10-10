@@ -5,7 +5,7 @@
 #include "Background.h"
 #include "Acrobat.h"
 #include "Collision.h"
-#include "Ruler.h"
+#include "GameManager.h"
 
 Player* Game::player = nullptr;
 
@@ -20,7 +20,7 @@ Game::Game()
     bg = new Background();
     fo = nullptr;
     coll = new Collision();
-    ruler = new Ruler();
+    GameManager::ResetAll();
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,6 @@ Game::~Game()
     delete frameRate;
     delete bg;
     delete coll;
-    delete ruler;
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -42,7 +41,9 @@ void Game::Update()
 {
     frameRate->Update();
     deltaTime = frameRate->GetDeltaTime();
-    ruler->Update(deltaTime);
+
+    GameManager::Update(deltaTime);
+
     player->Update(deltaTime);
 
     if (fo == nullptr)
@@ -66,7 +67,7 @@ void Game::Update()
         // シーンをメニューに変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
     }
-    if (player->GetLife() < 0 || ruler->GetTimer() < 0)
+    if (player->GetLife() < 0)
     {
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
     }
@@ -81,7 +82,7 @@ void Game::Draw()
     DrawString(0, 0, "ゲーム画面です。", GetColor(255, 255, 255));
     DrawString(0, 20, "Mキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
     DrawFormatString(200, 0, GetColor(255, 255, 255), "FPS:%5.4f", deltaTime);
-    DrawFormatString(0, 40, GetColor(255, 255, 255), "%f", ruler->GetTimer());
+    DrawFormatString(0, 40, GetColor(255, 255, 255), "%f", GameManager::GetTimer());
 
     if (fo != nullptr)fo->Draw();
 
