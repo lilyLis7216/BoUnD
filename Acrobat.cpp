@@ -1,5 +1,7 @@
 #include "Acrobat.h"
 #include "DxLib.h"
+#include "Collision.h"
+#include "Player.h"
 
 Acrobat::Acrobat()
 {
@@ -22,6 +24,12 @@ Acrobat::~Acrobat()
 
 void Acrobat::Update(float deltaTime)
 {
+}
+
+void Acrobat::Update(float deltaTime, Player* player)
+{
+    Collision::Test(player, this);
+
     posX += speed * deltaTime;
     
     if (posY < 980)
