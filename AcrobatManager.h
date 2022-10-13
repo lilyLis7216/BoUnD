@@ -17,21 +17,26 @@ public:
 
     static void Draw();
 
-    static void CreatePool(const int num);
-
     static void AddAcrobat(Acrobat* addAcrobat);
 
-    static void RemoveAcrobat();
+    static void RemoveAcrobat(const int i);
 
     static void RemoveAll();
+
 
 private:
     AcrobatManager();
     ~AcrobatManager();
+    
+    static bool IsCreateAcrobat(float deltaTime);
 
     static AcrobatManager* instance;
 
     std::vector<Acrobat*> acrobatPool;
 
-    Acrobat* acrobat;
+    static const int acrobatNumMax = 3;
+
+    static int acrobatNum;
+
+    static float createInterval;
 };

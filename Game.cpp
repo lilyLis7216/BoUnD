@@ -21,7 +21,6 @@ Game::Game()
     player = new Player();
     coll = new Collision();
     AcrobatManager::CreateInstance();
-    AcrobatManager::CreatePool(1);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------

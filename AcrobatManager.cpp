@@ -3,10 +3,14 @@
 #include "Player.h"
 
 AcrobatManager* AcrobatManager::instance;
+int AcrobatManager::acrobatNum;
+float AcrobatManager::createInterval;
 
 AcrobatManager::AcrobatManager()
 {
     instance = nullptr;
+    acrobatNum = 0;
+    createInterval = 0.0f;
 }
 
 AcrobatManager::~AcrobatManager()
@@ -33,13 +37,18 @@ void AcrobatManager::DeleteInstance()
 
 void AcrobatManager::Update(float deltaTime, Player* player)
 {
-    for (auto pool : instance->acrobatPool)
+    if (IsCreateAcrobat(deltaTime))
     {
+        AddAcrobat(new Acrobat);
+        createInterval = 5.0f;
+    }
+    for (int i = 0; i < instance->acrobatPool.size(); i++)
+    {
+        auto pool = instance->acrobatPool[i];
         pool->Update(deltaTime, player);
         if (pool->GetPosX() > 1500 || pool->GetPosY() > 1080)
         {
-            RemoveAcrobat();
-            AddAcrobat(new Acrobat());
+            RemoveAcrobat(i);
         }
     }
 }
@@ -52,23 +61,15 @@ void AcrobatManager::Draw()
     }
 }
 
-void AcrobatManager::CreatePool(const int num)
-{
-    for (int i = 0; i < num; i++)
-    {
-        instance->acrobat = new Acrobat();
-        AddAcrobat(instance->acrobat);
-    }
-}
-
 void AcrobatManager::AddAcrobat(Acrobat* addAcrobat)
 {
     instance->acrobatPool.push_back(addAcrobat);
 }
 
-void AcrobatManager::RemoveAcrobat()
+void AcrobatManager::RemoveAcrobat(const int i)
 {
-    instance->acrobatPool.pop_back();
+    //instance->acrobatPool.pop_back();
+    instance->acrobatPool.erase(instance->acrobatPool.begin() + i);
 }
 
 void AcrobatManager::RemoveAll()
@@ -78,4 +79,14 @@ void AcrobatManager::RemoveAll()
         delete instance->acrobatPool.back();
         instance->acrobatPool.pop_back();
     }
+}
+
+bool AcrobatManager::IsCreateAcrobat(float deltaTime)
+{
+    createInterval -= deltaTime;
+    if (createInterval < 0 && acrobatNum < acrobatNumMax)
+    {
+        return true;
+    }
+    return false;
 }
