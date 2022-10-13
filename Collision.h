@@ -1,5 +1,6 @@
 #pragma once
 
+class BaseObject;
 class Player;
 class Acrobat;
 
@@ -10,5 +11,7 @@ public:
     ~Collision();
 
     void Coll(Player* player, Acrobat* acrobat);
+
+    static void Test(Player* player, Acrobat* acrobat);
 private:
 };
