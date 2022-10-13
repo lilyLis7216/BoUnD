@@ -5,13 +5,13 @@
 #include "Result.h"
 
 // 管理変数たちの初期化
-SceneManager* SceneManager::instance = nullptr;
-SceneManager::SceneState SceneManager::nowScene = SceneManager::SceneState::Scene_Menu;
-SceneManager::SceneState SceneManager::nextScene = SceneManager::SceneState::Scene_None;
-Menu* SceneManager::menuScene     = nullptr;
-Game* SceneManager::gameScene     = nullptr;
-Config* SceneManager::configScene = nullptr;
-Result* SceneManager::resultScene = nullptr;
+SceneManager* SceneManager::instance;
+SceneManager::SceneState SceneManager::nowScene;
+SceneManager::SceneState SceneManager::nextScene;
+Menu* SceneManager::menuScene;
+Game* SceneManager::gameScene;
+Config* SceneManager::configScene;
+Result* SceneManager::resultScene;
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
@@ -21,6 +21,10 @@ SceneManager::SceneManager()
     instance = nullptr;
     nowScene  = SceneState::Scene_Menu;
     nextScene = SceneState::Scene_None;
+    menuScene = nullptr;
+    gameScene = nullptr;
+    configScene = nullptr;
+    resultScene = nullptr;
     InitModule(nowScene);
 }
 
