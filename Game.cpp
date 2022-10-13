@@ -1,13 +1,13 @@
 #include "Game.h"
 #include "DxLib.h"
-#include "FrameRate.h"
 #include "SceneManager.h"
+#include "GameManager.h"
 #include "Background.h"
+#include "FrameRate.h"
+#include "Player.h"
+#include "AcrobatManager.h"
 #include "Acrobat.h"
 #include "Collision.h"
-#include "GameManager.h"
-
-Player* Game::player = nullptr;
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
@@ -15,12 +15,13 @@ Player* Game::player = nullptr;
 Game::Game()
     :deltaTime(0)
 {
-    player = new Player();
-    frameRate = new FrameRate();
-    bg = new Background();
-    fo = nullptr;
-    coll = new Collision();
     GameManager::ResetAll();
+    bg = new Background();
+    frameRate = new FrameRate();
+    player = new Player();
+    coll = new Collision();
+    AcrobatManager::CreateInstance();
+    AcrobatManager::CreatePool(1);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -28,10 +29,11 @@ Game::Game()
 //--------------------------------------------------------------------------------------------------------------------------------
 Game::~Game()
 {
-    delete player;
-    delete frameRate;
     delete bg;
+    delete frameRate;
+    delete player;
     delete coll;
+    AcrobatManager::DeleteInstance();
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -46,21 +48,8 @@ void Game::Update()
 
     player->Update(deltaTime);
 
-    if (fo == nullptr)
-    {
-        fo = new Acrobat();
-    }
-    if (fo != nullptr)
-    {
-        coll->Coll(player, fo);
-    }
-    fo->Update(deltaTime);
-    if (fo->GetPosX() > 1500 || fo->GetPosY() > 1080)
-    {
-        delete fo;
-        fo = nullptr;
-        //player->Miss();
-    }
+    AcrobatManager::Update(deltaTime, player);
+
     // Mキーが押されたら 
     if (CheckHitKey(KEY_INPUT_M))
     {
@@ -84,7 +73,7 @@ void Game::Draw()
     DrawFormatString(200, 0, GetColor(255, 255, 255), "FPS:%5.4f", deltaTime);
     DrawFormatString(0, 40, GetColor(255, 255, 255), "%f", GameManager::GetTimer());
 
-    if (fo != nullptr)fo->Draw();
+    AcrobatManager::Draw();
 
     player->Draw();
 }

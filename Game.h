@@ -1,6 +1,10 @@
 #pragma once
 #include "BaseScene.h"
-#include "Player.h"
+
+class Background;
+class FrameRate;
+class Player;
+class Collision;
 
 class Game : public BaseScene
 {
@@ -11,12 +15,10 @@ public:
     void Update() override;
     void Draw()   override;
 
-    static Player* player;
-    class FrameRate* frameRate;
-    class Background* bg;
-    class Acrobat* fo;
-    class Collision* coll;
-
 private:
+    FrameRate* frameRate;
+    Background* bg;
+    Player* player;
+    Collision* coll;
     float deltaTime;
 };

@@ -1,0 +1,37 @@
+#pragma once
+#include <vector>
+
+// ‘O•ûéŒ¾
+class Acrobat;
+class Player;
+
+class AcrobatManager
+{
+public:
+
+    static void CreateInstance();
+
+    static void DeleteInstance();
+
+    static void Update(float deltaTime, Player* player);
+
+    static void Draw();
+
+    static void CreatePool(const int num);
+
+    static void AddAcrobat(Acrobat* addAcrobat);
+
+    static void RemoveAcrobat();
+
+    static void RemoveAll();
+
+private:
+    AcrobatManager();
+    ~AcrobatManager();
+
+    static AcrobatManager* instance;
+
+    std::vector<Acrobat*> acrobatPool;
+
+    Acrobat* acrobat;
+};
