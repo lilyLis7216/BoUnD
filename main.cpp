@@ -2,6 +2,7 @@
 #include "DxLib.h"
 #include "SceneManager.h"
 #include "GameManager.h"
+#include "SoundManager.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -12,7 +13,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
     SceneManager::CreateInstance();
     GameManager::CreateInstance();
-    
+    SoundManager::CreateInstance();
 
     // ÉQÅ[ÉÄÉãÅ[Év
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
@@ -29,6 +30,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
     SceneManager::DeleteInstance();
     GameManager::DeleteInstance();
+    SoundManager::DeleteInstance();
 
     DxLib_End();
     return 0;

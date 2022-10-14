@@ -3,6 +3,7 @@
 #include "Acrobat.h"
 #include "DxLib.h"
 #include <math.h>
+#include "SoundManager.h"
 
 Collision::Collision()
 {
@@ -30,6 +31,7 @@ void Collision::Test(Player* player, Acrobat* acrobat)
         player->GetPosY() - player->GetHalfScaleY() <= acrobat->GetPosY() + acrobat->GetHalfScaleY())
     {
         acrobat->SetBound(true);
+        SoundManager::PlaySE(2);
         //printfDx("“–‚½‚Á‚½");
     }
 }

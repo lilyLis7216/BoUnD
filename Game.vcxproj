@@ -148,6 +148,7 @@
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AcrobatManager.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Result.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SoundManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -72,6 +72,9 @@
     <ClCompile Include="AcrobatManager.cpp">
       <Filter>ソース ファイル\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FrameRate.h">
@@ -114,6 +117,9 @@
       <Filter>ソース ファイル\Manager</Filter>
     </ClInclude>
     <ClInclude Include="AcrobatManager.h">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
       <Filter>ソース ファイル\Manager</Filter>
     </ClInclude>
   </ItemGroup>
