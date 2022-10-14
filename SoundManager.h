@@ -9,19 +9,15 @@ public:
 
     static void DeleteInstance();
 
-    static void PlaySE(const int SEnum);
+    static void AddSound(const char* str);
 
-    static void StopSE(const int SEnum);
+    static void RemoveAll();
 
-    //static void AddSound(char* str);
+    static void StartSound(const int SEnum);
 
-    //static void RemoveAll();
+    static void StopSound(const int SEnum);
 
-    //static void StartSound(const int SEnum);
-
-    //static void StopSound(const int SEnum);
-
-    //static void StopAll();
+    static void StopAll();
 
 private:
     SoundManager();
@@ -29,14 +25,5 @@ private:
 
     static SoundManager* instance;
 
-    std::vector<int*> soundPool;
-
-    static int titleBGM;
-    static int gameBGM;
-    static int resultBGM;
-    static int moveSE;
-    static int moveLimitSE;
-    static int bounceSE;
-    static int fallingSE;
-    static int clashSE;
+    std::vector<int> soundPool;
 };

@@ -8,7 +8,7 @@ float AcrobatManager::createInterval;
 
 AcrobatManager::AcrobatManager()
 {
-    instance = nullptr;
+    instance = this;
     acrobatNum = 0;
     createInterval = 0.0f;
 }

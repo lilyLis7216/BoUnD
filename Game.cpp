@@ -2,10 +2,11 @@
 #include "DxLib.h"
 #include "SceneManager.h"
 #include "GameManager.h"
+#include "SoundManager.h"
+#include "AcrobatManager.h"
 #include "Background.h"
 #include "FrameRate.h"
 #include "Player.h"
-#include "AcrobatManager.h"
 #include "Acrobat.h"
 #include "Collision.h"
 
@@ -54,6 +55,7 @@ void Game::Update()
     {
         // シーンをメニューに変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
+        SoundManager::StopAll();
     }
     if (player->GetLife() < 0)
     {

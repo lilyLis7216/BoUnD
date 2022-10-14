@@ -5,7 +5,7 @@
 #include "Result.h"
 
 // ŠÇ—•Ï”‚½‚¿‚Ì‰Šú‰»
-SceneManager* SceneManager::instance;
+SceneManager* SceneManager::instance = nullptr;
 SceneManager::SceneState SceneManager::nowScene;
 SceneManager::SceneState SceneManager::nextScene;
 Menu* SceneManager::menuScene;
@@ -18,7 +18,6 @@ Result* SceneManager::resultScene;
 //--------------------------------------------------------------------------------------------------------------------------------
 SceneManager::SceneManager()
 {
-    instance = nullptr;
     nowScene  = SceneState::Scene_Menu;
     nextScene = SceneState::Scene_None;
     menuScene = nullptr;

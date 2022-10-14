@@ -31,7 +31,7 @@ void Collision::Test(Player* player, Acrobat* acrobat)
         player->GetPosY() - player->GetHalfScaleY() <= acrobat->GetPosY() + acrobat->GetHalfScaleY())
     {
         acrobat->SetBound(true);
-        SoundManager::PlaySE(2);
+        SoundManager::StartSound(2);
         //printfDx("“–‚½‚Á‚½");
     }
 }
