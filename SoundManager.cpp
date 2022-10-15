@@ -6,11 +6,14 @@ SoundManager* SoundManager::instance = nullptr;
 SoundManager::SoundManager()
 {
     instance = this;
-    AddSound("Assets/Sound/move.mp3");
-    AddSound("Assets/Sound/limit1.mp3");
-    AddSound("Assets/Sound/bounce.mp3");
-    AddSound("Assets/Sound/falling1.mp3");
-    AddSound("Assets/Sound/clash.mp3");
+    AddSound("Assets/Sound/title1.mp3");   // 0 タイトルBGM
+    AddSound("Assets/Sound/game1.wav");    // 1 ゲームBGM
+    AddSound("Assets/Sound/result1.mp3");  // 2 リザルトBGM
+    AddSound("Assets/Sound/move.mp3");     // 3 移動SE
+    AddSound("Assets/Sound/limit1.mp3");   // 4 移動限界SE
+    AddSound("Assets/Sound/bounce.mp3");   // 5 跳ねるSE
+    AddSound("Assets/Sound/fall1.mp3");    // 6 落下SE
+    AddSound("Assets/Sound/clash.mp3");    // 7 激突SE
 }
 
 SoundManager::~SoundManager()
