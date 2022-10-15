@@ -3,6 +3,7 @@
 #include "SceneManager.h"
 #include "GameManager.h"
 #include "SoundManager.h"
+#include "font.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -14,6 +15,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     SceneManager::CreateInstance();
     GameManager::CreateInstance();
     SoundManager::CreateInstance();
+    LPCSTR fontPath = "Assets/Font/PixelMplus12-Regular.ttf";
+    LoadFont(fontPath);
 
     // ÉQÅ[ÉÄÉãÅ[Év
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
@@ -31,6 +34,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     SceneManager::DeleteInstance();
     GameManager::DeleteInstance();
     SoundManager::DeleteInstance();
+    DeleteFont(fontPath);
 
     DxLib_End();
     return 0;
