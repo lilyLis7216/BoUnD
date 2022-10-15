@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include "DxLib.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
@@ -21,9 +22,12 @@ Menu::~Menu()
 //--------------------------------------------------------------------------------------------------------------------------------
 void Menu::Update()
 {
+    SoundManager::StartSound(0);
+
     // Gキーが押されたら
     if (CheckHitKey(KEY_INPUT_G))
     {
+        SoundManager::StopAll();
         // シーンをゲーム画面に変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Game);
     }
@@ -41,7 +45,7 @@ void Menu::Update()
 //--------------------------------------------------------------------------------------------------------------------------------
 void Menu::Draw()
 {
-    DrawString(0, 0, "メニュー画面です。", GetColor(255, 255, 255));
-    DrawString(0, 20, "Gキーを押すとゲーム画面に進みます。", GetColor(255, 255, 255));
-    DrawString(0, 40, "Cキーを押すと 設定 画面に進みます。", GetColor(255, 255, 255));
+    DrawString(700, 300, "メニュー画面です。", GetColor(255, 255, 255));
+    DrawString(700, 336, "Gキーを押すとゲーム画面に進みます。", GetColor(255, 255, 255));
+    DrawString(700, 372, "Cキーを押すと 設定 画面に進みます。", GetColor(255, 255, 255));
 }

@@ -1,6 +1,7 @@
 #include "Result.h"
 #include "DxLib.h"
 #include "SceneManager.h"
+#include "SoundManager.h"
 
 Result::Result()
 {
@@ -12,8 +13,10 @@ Result::~Result()
 
 void Result::Update()
 {
+    SoundManager::StartSound(2);
     if (CheckHitKey(KEY_INPUT_M))
     {
+        SoundManager::StopAll();
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
     }
 }

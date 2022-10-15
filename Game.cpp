@@ -41,6 +41,8 @@ Game::~Game()
 //--------------------------------------------------------------------------------------------------------------------------------
 void Game::Update()
 {
+    SoundManager::StartSound(1);
+
     frameRate->Update();
     deltaTime = frameRate->GetDeltaTime();
 
@@ -53,12 +55,13 @@ void Game::Update()
     // Mキーが押されたら 
     if (CheckHitKey(KEY_INPUT_M))
     {
+        SoundManager::StopAll();
         // シーンをメニューに変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
-        SoundManager::StopAll();
     }
-    if (player->GetLife() < 0)
+    if (player->GetLife() < 0 || GameManager::GetTimer() < 0)
     {
+        SoundManager::StopAll();
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
     }
 }
@@ -68,11 +71,16 @@ void Game::Update()
 //--------------------------------------------------------------------------------------------------------------------------------
 void Game::Draw()
 {
+    int white = GetColor(255, 255, 255);
     bg->Draw();
-    DrawString(0, 0, "ゲーム画面です。", GetColor(255, 255, 255));
-    DrawString(0, 20, "Mキーを押すとメニュー画面に戻ります。", GetColor(255, 255, 255));
-    DrawFormatString(200, 0, GetColor(255, 255, 255), "FPS:%5.4f", deltaTime);
-    DrawFormatString(0, 40, GetColor(255, 255, 255), "%f", GameManager::GetTimer());
+    DrawString(0, 0, "ゲーム画面です。", white);
+    DrawString(0, 20, "Mキーを押すとメニュー画面に戻ります。", white);
+
+    DrawFormatString(1536, 36, white, "Score:%d", GameManager::GetScore());
+    DrawFormatString(1536, 72, white, "Comb:%d", GameManager::GetComb());
+    DrawFormatString(1536, 108, white, "Time:%d", (int)GameManager::GetTimer());
+    DrawFormatString(1536, 144, white, "FPS:%5.4f", deltaTime);
+
 
     AcrobatManager::Draw();
 
