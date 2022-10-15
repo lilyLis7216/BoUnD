@@ -28,7 +28,7 @@ void Acrobat::Update(float deltaTime)
 
 void Acrobat::Update(float deltaTime, Player* player)
 {
-    Collision::Test(player, this);
+    Collision::Coll(player, this);
 
     posX += speed * deltaTime;
     
