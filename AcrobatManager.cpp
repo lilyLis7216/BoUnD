@@ -1,6 +1,7 @@
 #include "AcrobatManager.h"
 #include "Acrobat.h"
 #include "Player.h"
+#include "GameManager.h"
 
 AcrobatManager* AcrobatManager::instance;
 int AcrobatManager::acrobatNum;
@@ -39,16 +40,22 @@ void AcrobatManager::Update(float deltaTime, Player* player)
 {
     if (IsCreateAcrobat(deltaTime))
     {
-        AddAcrobat(new Acrobat);
-        createInterval = 5.0f;
+        AddAcrobat(new Acrobat());
+        createInterval = 3.5f;
     }
     for (int i = 0; i < instance->acrobatPool.size(); i++)
     {
         auto pool = instance->acrobatPool[i];
         pool->Update(deltaTime, player);
-        if (pool->GetPosX() > 1500 || pool->GetPosY() > 1080)
+        if (pool->GetPosX() > 1500)
         {
             RemoveAcrobat(i);
+        }
+        if (pool->GetPosY() > 1080)
+        {
+            RemoveAcrobat(i);
+            player->Miss();
+            GameManager::ResetComb();
         }
     }
 }

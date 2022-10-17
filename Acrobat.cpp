@@ -32,13 +32,15 @@ void Acrobat::Update(float deltaTime, Player* player)
 
     posX += speed * deltaTime;
     
-    if (posY < 980)
+    if (posY < 835 || 935 < posY)
     {
         isBound = false;
     }
+
+    float tmp = GetRand(5) + 10;
     if (isBound)
     {
-        jumpPower = -15.0f;
+        jumpPower = -tmp;
     }
     else
     {
@@ -52,8 +54,8 @@ void Acrobat::Update(float deltaTime, Player* player)
 void Acrobat::Draw()
 {
     DrawRotaGraph((int)posX, (int)posY, scaling, 0, image, FALSE);
-    DrawFormatString(0, 140, GetColor(0, 0, 0), "fallObjX:%5.4f", posX);
-    DrawFormatString(0, 160, GetColor(0, 0, 0), "fallObjY:%5.4f", posY);
+    //DrawFormatString(0, 140, GetColor(0, 0, 0), "fallObjX:%5.4f", posX);
+    //DrawFormatString(0, 160, GetColor(0, 0, 0), "fallObjY:%5.4f", posY);
 }
 
 void Acrobat::SetBound(bool flag)
