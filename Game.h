@@ -15,6 +15,8 @@ public:
     void Update() override;
     void Draw()   override;
 
+    void UI();
+
 private:
     FrameRate* frameRate;
     Background* bg;

@@ -59,7 +59,7 @@ void Game::Update()
         // シーンをメニューに変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
     }
-    if (player->GetLife() < 0 || GameManager::GetTimer() < 0)
+    if (player->GetLife() < 1 || GameManager::GetTimer() < 0)
     {
         SoundManager::StopAll();
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
@@ -71,18 +71,23 @@ void Game::Update()
 //--------------------------------------------------------------------------------------------------------------------------------
 void Game::Draw()
 {
-    int white = GetColor(255, 255, 255);
     bg->Draw();
-    DrawString(0, 0, "ゲーム画面です。", white);
-    DrawString(0, 20, "Mキーを押すとメニュー画面に戻ります。", white);
-
-    DrawFormatString(1536, 36, white, "Score:%d", GameManager::GetScore());
-    DrawFormatString(1536, 72, white, "Comb:%d", GameManager::GetComb());
-    DrawFormatString(1536, 108, white, "Time:%d", (int)GameManager::GetTimer());
-    DrawFormatString(1536, 144, white, "FPS:%5.4f", deltaTime);
-
+    //DrawString(0, 0, "ゲーム画面です。", white);
+    //DrawString(0, 36, "Mキーを押すとメニュー画面に戻ります。", white);
 
     AcrobatManager::Draw();
 
     player->Draw();
+    UI();
+}
+
+void Game::UI()
+{
+    int fontSize = 60;
+    int white = GetColor(255, 255, 255);
+    DrawFormatString(1536, fontSize, white, "Score:%d", GameManager::GetScore());
+    DrawFormatString(1536, fontSize * 2, white, "Comb:%d", GameManager::GetComb());
+    DrawFormatString(36, fontSize, white, "Time:%d", (int)GameManager::GetTimer());
+    DrawFormatString(36, fontSize * 2, white, "Life:%d", player->GetLife());
+    DrawFormatString(36, fontSize * 3, white, "FPS:%5.4f", deltaTime);
 }

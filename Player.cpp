@@ -13,7 +13,7 @@ Player::Player()
     scaleY = 50.0f;
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
-    speed = 300.0f;
+    speed = 600.0f;
     image = LoadGraph("Assets/Player/test.png");
 }
 
@@ -41,8 +41,6 @@ void Player::Update(float deltaTime)
 void Player::Draw()
 {
     DrawRotaGraph((int)posX, (int)posY, scaling, 0, image, TRUE);
-    DrawFormatString(0, 100, GetColor(0, 0, 0), "playerX:%5.4f", posX);
-    DrawFormatString(0, 120, GetColor(0, 0, 0), "life: % d", life);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------

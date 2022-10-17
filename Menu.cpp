@@ -45,7 +45,8 @@ void Menu::Update()
 //--------------------------------------------------------------------------------------------------------------------------------
 void Menu::Draw()
 {
-    DrawString(700, 300, "メニュー画面です。", GetColor(255, 255, 255));
-    DrawString(700, 336, "Gキーを押すとゲーム画面に進みます。", GetColor(255, 255, 255));
-    DrawString(700, 372, "Cキーを押すと 設定 画面に進みます。", GetColor(255, 255, 255));
+    int fontSize = 60;
+    int white = GetColor(255, 255, 255);
+    DrawString(600, fontSize * 7, "メニュー画面です。", white);
+    DrawString(600, fontSize * 8, "Gキーを押すとゲーム画面に進みます。", white);
 }
