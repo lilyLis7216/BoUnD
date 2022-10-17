@@ -12,7 +12,7 @@ void LoadFont(LPCSTR fontPath)
         // フォント読み込みエラー処理
         MessageBox(NULL, "フォント読込失敗", "", MB_OK);
     }
-    SetFontSize(36);
+    SetFontSize(60);
     ChangeFont("PixelMplus12", DX_CHARSET_DEFAULT);
 }
 
