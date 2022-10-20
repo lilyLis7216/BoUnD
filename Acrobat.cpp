@@ -37,7 +37,7 @@ void Acrobat::Update(float deltaTime, Player* player)
         isBound = false;
     }
 
-    float tmp = GetRand(5) + 10;
+    float tmp = (float)GetRand(5) + 10;
     if (isBound)
     {
         jumpPower = -tmp;
