@@ -12,8 +12,9 @@ void LoadFont(LPCSTR fontPath)
         // フォント読み込みエラー処理
         MessageBox(NULL, "フォント読込失敗", "", MB_OK);
     }
-    SetFontSize(60);
-    ChangeFont("PixelMplus12", DX_CHARSET_DEFAULT);
+    //SetFontSize(60);
+    //ChangeFont("PixelMplus12", DX_CHARSET_DEFAULT);
+    ChangeFont("07にくまるフォント", DX_CHARSET_DEFAULT);
 }
 
 void DeleteFont(LPCSTR fontPath)
