@@ -14,6 +14,10 @@ SoundManager::SoundManager()
     AddSound("Assets/Sound/bounce.mp3");   // 5 ’µ‚Ë‚éSE
     AddSound("Assets/Sound/fall1.mp3");    // 6 —‰ºSE
     AddSound("Assets/Sound/clash.mp3");    // 7 Œƒ“ËSE
+    for (auto pool : instance->soundPool)
+    {
+        ChangeVolumeSoundMem(100, pool);
+    }
 }
 
 SoundManager::~SoundManager()
