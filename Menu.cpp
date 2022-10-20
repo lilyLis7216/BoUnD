@@ -8,6 +8,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------
 Menu::Menu()
 {
+    logo = LoadGraph("Assets/Background/logo.png");
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -47,6 +48,7 @@ void Menu::Draw()
 {
     int fontSize = 60;
     int white = GetColor(255, 255, 255);
-    DrawString(600, fontSize * 7, "メニュー画面です。", white);
-    DrawString(600, fontSize * 8, "Gキーを押すとゲーム画面に進みます。", white);
+    DrawString(600, fontSize * 10, "メニュー画面です。", white);
+    DrawString(600, fontSize * 12, "Gキーを押すとゲーム画面に進みます。", white);
+    DrawRotaGraph(960, 300, 3.0f, 0, logo, TRUE);
 }
