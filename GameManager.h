@@ -10,7 +10,7 @@ public:
     static void Update(float deltaTime);
 
     static float GetTimer() { return timer; }
-    static void ResetTimer() { timer = 30.0f; }
+    static void ResetTimer() { timer = 31.0f; }
 
     static int GetScore() { return score; }
     static void AddScore(int add) { score += add; }
@@ -19,6 +19,10 @@ public:
     static int GetComb() { return comb; }
     static void AddComb() { comb += 1; }
     static void ResetComb() { comb = 0; }
+
+    static int GetMaxComb() { return maxComb; }
+    static void AddMaxComb();
+    static void ResetMaxComb() { maxComb = 0; }
 
     static void ResetAll();
 
@@ -34,4 +38,6 @@ private:
     static int score;
     
     static int comb;
+
+    static int maxComb;
 };

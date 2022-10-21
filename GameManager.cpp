@@ -4,6 +4,7 @@ GameManager* GameManager::instance = nullptr;
 float GameManager::timer;
 int GameManager::score;
 int GameManager::comb;
+int GameManager::maxComb;
 
 
 GameManager::GameManager()
@@ -38,9 +39,15 @@ void GameManager::Update(float deltaTime)
     timer -= deltaTime;
 }
 
+void GameManager::AddMaxComb()
+{
+    if (comb > maxComb)maxComb++;
+}
+
 void GameManager::ResetAll()
 {
     ResetTimer();
     ResetScore();
     ResetComb();
+    ResetMaxComb();
 }
