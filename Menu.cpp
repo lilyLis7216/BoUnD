@@ -8,7 +8,9 @@
 //--------------------------------------------------------------------------------------------------------------------------------
 Menu::Menu()
 {
+    backgroundImage = LoadGraph("Assets/Background/sky.png");
     logo = LoadGraph("Assets/Background/logo.png");
+    enterImage = LoadGraph("Assets/UI/enter1.png");
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -25,8 +27,8 @@ void Menu::Update()
 {
     SoundManager::StartSound(0);
 
-    // Gキーが押されたら
-    if (CheckHitKey(KEY_INPUT_G))
+    // Enterが押されたら
+    if (CheckHitKey(KEY_INPUT_RETURN))
     {
         SoundManager::StopAll();
         // シーンをゲーム画面に変更
@@ -48,7 +50,9 @@ void Menu::Draw()
 {
     int fontSize = 60;
     int white = GetColor(255, 255, 255);
+    DrawGraph(0, 0, backgroundImage, TRUE);
     DrawString(600, fontSize * 10, "メニュー画面です。", white);
-    DrawString(600, fontSize * 12, "Gキーを押すとゲーム画面に進みます。", white);
+    DrawRotaGraph(400, fontSize * 12, 1.0f, 0, enterImage, TRUE);
+    DrawString(600, fontSize * 12, "：ゲームスタート！", white);
     DrawRotaGraph(960, 300, 3.0f, 0, logo, TRUE);
 }

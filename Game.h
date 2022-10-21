@@ -1,7 +1,6 @@
 #pragma once
 #include "BaseScene.h"
 
-class Background;
 class FrameRate;
 class Player;
 class Collision;
@@ -19,7 +18,6 @@ public:
 
 private:
     FrameRate* frameRate;
-    Background* bg;
     Player* player;
     Collision* coll;
     float deltaTime;

@@ -43,10 +43,8 @@ void Collision::Coll(Player* player, Acrobat* acrobat)
 
     if ((pLeft < acrobat->GetPosX()) && (acrobat->GetPosX() < pRight) && (player->GetPosY() < acrobat->GetPosY()))
     {
-        acrobat->SetBound(true);
+        acrobat->OnHit(true);
         SoundManager::StartSound(5);
-        GameManager::AddScore(100);
-        GameManager::AddComb();
     }
 }
 

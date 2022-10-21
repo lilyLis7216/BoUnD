@@ -18,6 +18,8 @@ public:
 
     void SetBound(bool flag);
 
+    void OnHit(bool flag);
+
 private:
     //! ‘¬“x
     float speed;
@@ -30,4 +32,7 @@ private:
     float halfScaleY;
 
     int tmpCount;
+
+    bool prevHit;
+    bool nowHit;
 };

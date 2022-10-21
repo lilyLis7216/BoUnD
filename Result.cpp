@@ -2,6 +2,7 @@
 #include "DxLib.h"
 #include "SceneManager.h"
 #include "SoundManager.h"
+#include "GameManager.h"
 
 Result::Result()
 {
@@ -27,4 +28,6 @@ void Result::Draw()
     int white = GetColor(255, 255, 255);
     DrawString(600, fontSize * 7, "リザルト画面です。", white);
     DrawString(600, fontSize * 8, "Mキーを押すとメニュー画面に戻ります。", white);
+    DrawFormatString(600, fontSize * 9, white, "Score:%d", GameManager::GetScore());
+    DrawFormatString(600, fontSize * 10, white, "MaxComb:%d", GameManager::GetMaxComb());
 }

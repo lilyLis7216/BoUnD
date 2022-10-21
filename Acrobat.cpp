@@ -2,6 +2,7 @@
 #include "DxLib.h"
 #include "Collision.h"
 #include "Player.h"
+#include "GameManager.h"
 
 Acrobat::Acrobat()
 {
@@ -15,6 +16,8 @@ Acrobat::Acrobat()
     isBound = false;
     jumpPower = -7.5f;
     tmpCount = 0;
+    nowHit = false;
+    prevHit = false;
     image = LoadGraph("Assets/Acrobat/test.png");
 }
 
@@ -35,6 +38,7 @@ void Acrobat::Update(float deltaTime, Player* player)
     if (posY < 835 || 935 < posY)
     {
         isBound = false;
+        nowHit = false;
     }
 
     float tmp = (float)GetRand(5) + 10;
@@ -49,6 +53,7 @@ void Acrobat::Update(float deltaTime, Player* player)
     }
 
     posY += jumpPower;
+    prevHit = nowHit;
 }
 
 void Acrobat::Draw()
@@ -61,4 +66,16 @@ void Acrobat::Draw()
 void Acrobat::SetBound(bool flag)
 {
     isBound = flag;
+}
+
+void Acrobat::OnHit(bool flag)
+{
+    isBound = flag;
+    nowHit = true;
+    if (!prevHit)
+    {
+        GameManager::AddScore(100);
+        GameManager::AddComb();
+        GameManager::AddMaxComb();
+    }
 }
