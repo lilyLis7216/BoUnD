@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Acrobat.h"
 #include "Collision.h"
+#include "UserInterface.h"
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // @brief コンストラクタ
@@ -76,10 +77,10 @@ void Game::UI()
 {
     int fontSize = 60;
     int white = GetColor(255, 255, 255);
-    DrawFormatString(1518, fontSize, white, "Score:%d", GameManager::GetScore());
-    DrawFormatString(1518, fontSize * 2, white, "Comb:%d", GameManager::GetComb());
-    DrawFormatString(1518, fontSize * 3, white, "MaxComb:%d", GameManager::GetMaxComb());
-    DrawFormatString(36, fontSize, white, "Time:%d", (int)GameManager::GetTimer());
-    DrawFormatString(36, fontSize * 2, white, "Life:%d", player->GetLife());
+    UserInterface::UIText(1518, 60, white, "Score:%d", GameManager::GetScore(), fontSize);
+    UserInterface::UIText(1518, 120, white, "Comb:%d", GameManager::GetComb(), fontSize);
+    UserInterface::UIText(1518, 180, white, "MaxComb:%d", GameManager::GetMaxComb(), fontSize);
+    UserInterface::UIText(36, 60, white, "Time:%d", (int)GameManager::GetTimer(), fontSize);
+    UserInterface::UIText(36, 120, white, "Life:%d", player->GetLife(), fontSize);
     DrawFormatString(36, fontSize * 3, white, "FPS:%5.4f", deltaTime);
 }
