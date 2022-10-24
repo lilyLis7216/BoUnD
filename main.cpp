@@ -15,10 +15,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     SceneManager::CreateInstance();
     GameManager::CreateInstance();
     SoundManager::CreateInstance();
-    //LPCSTR fontPath = "Assets/Font/PixelMplus12-Regular.ttf";
     LPCSTR fontPath = "Assets/Font/07Nikumaru.otf";
     LoadFont(fontPath);
-    SetFontSize(60);
 
     // ÉQÅ[ÉÄÉãÅ[Év
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
