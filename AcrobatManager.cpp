@@ -3,8 +3,13 @@
 #include "Player.h"
 #include "GameManager.h"
 
+/** AcrobatManagerのインスタンス*/
 AcrobatManager* AcrobatManager::instance;
+
+/** Acrobatの数*/
 int AcrobatManager::acrobatNum;
+
+/** 生成の間隔*/
 float AcrobatManager::createInterval;
 
 AcrobatManager::AcrobatManager()
@@ -23,7 +28,7 @@ void AcrobatManager::CreateInstance()
 {
     if (!instance)
     {
-        instance = new AcrobatManager();
+        instance = new AcrobatManager;
     }
 }
 
@@ -40,7 +45,7 @@ void AcrobatManager::Update(float deltaTime, Player* player)
 {
     if (IsCreateAcrobat(deltaTime))
     {
-        AddAcrobat(new Acrobat());
+        AddAcrobat(new Acrobat);
         createInterval = 3.5f;
     }
     for (int i = 0; i < instance->acrobatPool.size(); i++)
@@ -75,7 +80,6 @@ void AcrobatManager::AddAcrobat(Acrobat* addAcrobat)
 
 void AcrobatManager::RemoveAcrobat(const int i)
 {
-    //instance->acrobatPool.pop_back();
     instance->acrobatPool.erase(instance->acrobatPool.begin() + i);
 }
 

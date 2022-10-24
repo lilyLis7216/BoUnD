@@ -1,9 +1,18 @@
 #include "GameManager.h"
 
+/** GameManagerのインスタンス*/
 GameManager* GameManager::instance = nullptr;
+
+/** タイマー*/
 float GameManager::timer;
+
+/** スコア*/
 int GameManager::score;
+
+/** コンボ数*/
 int GameManager::comb;
+
+/** 最大コンボ数*/
 int GameManager::maxComb;
 
 

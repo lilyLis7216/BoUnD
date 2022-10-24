@@ -13,7 +13,3 @@ BaseObject::BaseObject()
 BaseObject::~BaseObject()
 {
 }
-
-void BaseObject::Draw()
-{
-}

@@ -5,19 +5,18 @@
 #include "GameManager.h"
 
 Acrobat::Acrobat()
+    : halfScaleX(scaleX / 2)
+    , halfScaleY(scaleY / 2)
+    , isBound(false)
+    , jumpPower(-7.5f)
+    , nowHit(false)
+    , prevHit(false)
 {
     posX = 300;
     posY = 200;
-    scaleX = 100.0f;
-    scaleY = 100.0f;
-    halfScaleX = scaleX / 2;
-    halfScaleY = scaleY / 2;
+    scaleX = 75.0f;
+    scaleY = 75.0f;
     speed = 200.0f;
-    isBound = false;
-    jumpPower = -7.5f;
-    tmpCount = 0;
-    nowHit = false;
-    prevHit = false;
     image = LoadGraph("Assets/Acrobat/test.png");
 }
 
@@ -61,11 +60,6 @@ void Acrobat::Draw()
     DrawRotaGraph((int)posX, (int)posY, scaling, 0, image, FALSE);
     //DrawFormatString(0, 140, GetColor(0, 0, 0), "fallObjX:%5.4f", posX);
     //DrawFormatString(0, 160, GetColor(0, 0, 0), "fallObjY:%5.4f", posY);
-}
-
-void Acrobat::SetBound(bool flag)
-{
-    isBound = flag;
 }
 
 void Acrobat::OnHit(bool flag)

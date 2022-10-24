@@ -3,49 +3,87 @@
 // 前方宣言
 class Menu;
 class Game;
-class Config;
 class Result;
 
 class SceneManager final
 {
 public:
+    /** シーンの状態*/
     enum class SceneState
     {
-        Scene_None = 0,  // 無し
-        Scene_Menu,      // メニュー画面
-        Scene_Game,      // ゲーム画面
-        Scene_Config,    // コンフィグ画面
-        Scene_Result,    // リザルト画面
+        Scene_None = 0,  /**< 無し*/
+        Scene_Menu,      /**< メニュー画面*/
+        Scene_Game,      /**< ゲーム画面*/
+        Scene_Result,    /**< リザルト画面*/
     };
 
-    static void CreateInstance();
-
-    static void DeleteInstance();
-
-    static void Update();
-    static void Draw();
-
-    static void ChangeScene(SceneState nextScene);
-
-    static void InitModule(SceneState scene);  // 指定モジュールの初期化
-    static void FinModule(SceneState scene);   // 指定モジュールの後始末
-
-    //! 現シーンの管理変数
-    static SceneState nowScene;
-    //! 次のシーンの管理変数
-    static SceneState nextScene;
-    //! メニューシーン管理変数
-    static Menu* menuScene;
-    //! ゲームシーン管理変数
-    static Game* gameScene;
-    //! コンフィグシーン管理変数
-    static Config* configScene;
-    //! リザルトシーン管理変数
-    static Result* resultScene;
-private:
-    // シングルトン
-    SceneManager();
+    /**
+    * SceneManagerのデストラクタ
+    */
     ~SceneManager();
 
+    /**
+    * SceneManagerのインスタンスの生成
+    */
+    static void CreateInstance();
+
+    /**
+    * SceneManagerのインスタンスの削除
+    */
+    static void DeleteInstance();
+
+    /**
+    * SceneManagerの更新処理
+    */
+    static void Update();
+
+    /**
+    * SceneManagerの描画処理
+    */
+    static void Draw();
+
+    /**
+    * シーンの遷移処理
+    * @param[in] nextScene 遷移するシーン
+    */
+    static void ChangeScene(SceneState nextScene);
+
+private:
+    /**
+    * SceneManagerのコンストラクタ
+    * シングルトン
+    */
+    SceneManager();
+
+    /**
+    * 指定モジュールの初期化
+    *
+    * @param[in] scene 初期化するシーン
+    */
+    static void InitModule(SceneState scene);
+
+    /**
+    * 指定モジュールの後始末
+    *
+    * @param[in] scene 後始末するシーン
+    */
+    static void FinModule(SceneState scene);
+
+    /** SceneManagerのインスタンス*/
     static SceneManager* instance;
+
+    /** 現在のシーンの管理変数*/
+    static SceneState nowScene;
+
+    /** 次のシーンの管理変数*/
+    static SceneState nextScene;
+
+    /** メニューシーンの管理変数*/
+    static Menu* menuScene;
+
+    /** ゲームシーンの管理変数*/
+    static Game* gameScene;
+
+    /** リザルトシーンの管理変数*/
+    static Result* resultScene;
 };

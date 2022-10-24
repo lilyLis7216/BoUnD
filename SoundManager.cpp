@@ -1,6 +1,7 @@
 #include "SoundManager.h"
 #include "DxLib.h"
 
+/** SoundManagerのインスタンス*/
 SoundManager* SoundManager::instance = nullptr;
 
 SoundManager::SoundManager()
