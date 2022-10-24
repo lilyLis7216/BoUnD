@@ -6,6 +6,10 @@
 #include "SoundManager.h"
 #include "GameManager.h"
 
+Collision::CollInfo* Collision::player = NULL;
+Collision::CollInfo Collision::acrobat[3] = { NULL };
+
+
 Collision::Collision()
 {
 }
@@ -48,3 +52,31 @@ void Collision::Coll(Player* player, Acrobat* acrobat)
     }
 }
 
+//void Collision::ObjCollUpdate(float x, float y, float w, float h)
+//{
+//    player->x = x;
+//    player->y = y;
+//    player->w = w;
+//    player->h = h;
+//}
+//
+//void Collision::ObjCollUpdate(float x, float y, float w, float h, int acrNum)
+//{
+//    acrobat[acrNum].x = x;
+//    acrobat[acrNum].y = y;
+//    acrobat[acrNum].w = w;
+//    acrobat[acrNum].h = h;
+//}
+//
+//void Collision::Coll()
+//{
+//    float pLeft = player->x - player->w;
+//    float pRight = player->x + player->w;
+//    float pTop = player->y - player->h;
+//    float pButtom = player->y + player->h;
+//    if ((pLeft < acrobat->x) && (acrobat->x < pRight) && (player->y < acrobat->y))
+//    {
+//        acrobat->OnHit(true);
+//        SoundManager::StartSound(5);
+//    }
+//}
