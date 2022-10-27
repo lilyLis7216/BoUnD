@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "DxLib.h"
+#include "SoundManager.h"
 
 Player::Player()
     : life(3)
@@ -51,10 +52,12 @@ void Player::AdjustPos()
     if (posX < 420 + halfScaleX)
     {
         posX = 420 + halfScaleX;
+        SoundManager::StartSound(4);
     }
 
     if (posX > 1500 - halfScaleX)
     {
         posX = 1500 - halfScaleX;
+        SoundManager::StartSound(4);
     }
 }
