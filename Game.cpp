@@ -63,12 +63,28 @@ void Game::Draw()
 
 void Game::UI()
 {
-    int fontSize = 40;
     int white = GetColor(255, 255, 255);
-    UserInterface::UIText(1518, 60, white, "Score:%d", GameManager::GetScore(), fontSize);
-    UserInterface::UIText(1518, 120, white, "Comb:%d", GameManager::GetComb(), fontSize);
-    UserInterface::UIText(1518, 180, white, "MaxComb:%d", GameManager::GetMaxComb(), fontSize);
-    UserInterface::UIText(36, 60, white, "Time:%d", (int)GameManager::GetTimer(), fontSize);
-    UserInterface::UIText(36, 120, white, "Life:%d", player->GetLife(), fontSize);
-    DrawFormatString(36, fontSize * 3, white, "FPS:%5.4f", deltaTime);
+
+    // 残りタイム表示
+    UserInterface::UIBox(20, 320, 20, 120, 10);
+    UserInterface::UIText(40, 40, white, "Time:%d", (int)GameManager::GetTimer());
+
+    // コンボ表示
+    UserInterface::UIBox(340, 660, 20, 120, 10);
+    UserInterface::UIText(360, 40, white, "Comb:%d", GameManager::GetComb());
+
+    // 最大コンボ表示
+    UserInterface::UIBox(680, 1120, 20, 120, 10);
+    UserInterface::UIText(700, 40, white, "MaxComb:%d", GameManager::GetMaxComb());
+
+    // スコア表示
+    UserInterface::UIBox(1140, 1580, 20, 120, 10);
+    UserInterface::UIText(1160, 40, white, "Score:%d", GameManager::GetScore());
+
+    // 残り自機数表示
+    UserInterface::UIBox(1600, 1900, 20, 120, 10);
+    UserInterface::UIText(1620, 40, white, "Life:%d", player->GetLife());
+
+    // 確認用
+    //DrawFormatString(36, 180, white, "FPS:%5.4f", deltaTime);
 }
