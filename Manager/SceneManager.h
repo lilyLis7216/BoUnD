@@ -1,7 +1,7 @@
 #pragma once
 
 // 前方宣言
-class Menu;
+class Title;
 class Game;
 class Result;
 
@@ -12,7 +12,7 @@ public:
     enum class SceneState
     {
         Scene_None = 0,  /**< 無し*/
-        Scene_Menu,      /**< メニュー画面*/
+        Scene_Title,     /**< タイトル画面*/
         Scene_Game,      /**< ゲーム画面*/
         Scene_Result,    /**< リザルト画面*/
     };
@@ -79,7 +79,7 @@ private:
     static SceneState nextScene;
 
     /** メニューシーンの管理変数*/
-    static Menu* menuScene;
+    static Title* menuScene;
 
     /** ゲームシーンの管理変数*/
     static Game* gameScene;

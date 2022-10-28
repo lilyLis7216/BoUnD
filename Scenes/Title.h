@@ -1,18 +1,18 @@
 #pragma once
 #include "../BaseClass/BaseScene.h"
 
-class Menu : public BaseScene
+class Title : public BaseScene
 {
 public:
     /**
-    * Menuのコンストラクタ
+    * Titleのコンストラクタ
     */
-    Menu();
+    Title();
 
     /**
-    * Menuのデストラクタ
+    * Titleのデストラクタ
     */
-    ~Menu();
+    ~Title();
 
     /**
     * メニューの更新処理

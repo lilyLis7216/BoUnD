@@ -36,7 +36,7 @@
     <ClCompile Include="Scenes\Game.cpp">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Scenes\Menu.cpp">
+    <ClCompile Include="Scenes\Title.cpp">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Scenes\Result.cpp">
@@ -80,7 +80,7 @@
     <ClInclude Include="Scenes\Game.h">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Scenes\Menu.h">
+    <ClInclude Include="Scenes\Title.h">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Scenes\Result.h">
@@ -111,9 +111,6 @@
       <Filter>ソース ファイル\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Append\Collision.h">
-      <Filter>ソース ファイル\Append</Filter>
-    </ClInclude>
-    <ClInclude Include="Append\font.h">
       <Filter>ソース ファイル\Append</Filter>
     </ClInclude>
     <ClInclude Include="Append\FrameRate.h">

@@ -18,7 +18,7 @@ void Result::Update()
     if (CheckHitKey(KEY_INPUT_M))
     {
         SoundManager::StopAll();
-        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Title);
     }
 }
 

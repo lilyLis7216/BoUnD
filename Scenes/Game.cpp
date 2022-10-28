@@ -18,7 +18,7 @@ Game::Game()
     player = new Player();
     coll = new Collision();
     AcrobatManager::CreateInstance();
-    backgroundImage = LoadGraph("Assets/Background/test.png");
+    backgroundImage = LoadGraph("Assets/Background/background.png");
 }
 
 Game::~Game()
@@ -44,7 +44,7 @@ void Game::Update()
     {
         SoundManager::StopAll();
         // シーンをメニューに変更
-        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Menu);
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Title);
     }
     if (player->GetLife() < 1 || GameManager::GetTimer() < 0)
     {
@@ -56,14 +56,15 @@ void Game::Update()
 void Game::Draw()
 {
     DrawGraph(0, 0, backgroundImage, TRUE);
-    AcrobatManager::Draw();
     player->Draw();
+    AcrobatManager::Draw();
     UI();
 }
 
 void Game::UI()
 {
     int white = GetColor(255, 255, 255);
+    int black = GetColor(0, 0, 0);
 
     // 残りタイム表示
     UserInterface::UIBox(20, 320, 20, 120, 10);

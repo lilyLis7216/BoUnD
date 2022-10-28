@@ -1,5 +1,5 @@
 #include "SceneManager.h"
-#include "../Scenes/Menu.h"
+#include "../Scenes/Title.h"
 #include "../Scenes/Game.h"
 #include "../Scenes/Result.h"
 
@@ -13,7 +13,7 @@ SceneManager::SceneState SceneManager::nowScene;
 SceneManager::SceneState SceneManager::nextScene;
 
 /** メニューシーンの管理変数*/
-Menu* SceneManager::menuScene;
+Title* SceneManager::menuScene;
 
 /** ゲームシーンの管理変数*/
 Game* SceneManager::gameScene;
@@ -23,7 +23,7 @@ Result* SceneManager::resultScene;
 
 SceneManager::SceneManager()
 {
-    nowScene  = SceneState::Scene_Menu;
+    nowScene  = SceneState::Scene_Title;
     nextScene = SceneState::Scene_None;
     menuScene = nullptr;
     gameScene = nullptr;
@@ -67,7 +67,7 @@ void SceneManager::Update()
     // 現在のシーンによって処理を分岐
     switch (nowScene)
     {
-    case SceneState::Scene_Menu:
+    case SceneState::Scene_Title:
         menuScene->Update();
         break;
     case SceneState::Scene_Game:
@@ -86,7 +86,7 @@ void SceneManager::Draw()
     // 現在のシーンによって処理を分岐
     switch (nowScene)
     {
-    case SceneState::Scene_Menu:
+    case SceneState::Scene_Title:
         menuScene->Draw();
         break;
     case SceneState::Scene_Game:
@@ -110,8 +110,8 @@ void SceneManager::InitModule(SceneState scene)
 {
     switch (scene)
     {
-    case SceneState::Scene_Menu:
-        menuScene = new Menu();
+    case SceneState::Scene_Title:
+        menuScene = new Title();
         break;
     case SceneState::Scene_Game:
         gameScene = new Game();
@@ -127,7 +127,7 @@ void SceneManager::FinModule(SceneState scene)
 {
     switch (scene)
     {
-    case SceneState::Scene_Menu:
+    case SceneState::Scene_Title:
         delete menuScene;
         break;
     case SceneState::Scene_Game:

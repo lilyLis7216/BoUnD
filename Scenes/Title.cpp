@@ -1,21 +1,21 @@
-#include "Menu.h"
+#include "Title.h"
 #include "DxLib.h"
 #include "../Manager/SceneManager.h"
 #include "../Manager/SoundManager.h"
 #include "../Append/UserInterface.h"
 
-Menu::Menu()
+Title::Title()
 {
-    backgroundImage = LoadGraph("Assets/Background/sky.png");
+    backgroundImage = LoadGraph("Assets/Background/title.png");
     logo = LoadGraph("Assets/Background/logo.png");
     enterImage = LoadGraph("Assets/UI/enter1.png");
 }
 
-Menu::~Menu()
+Title::~Title()
 {
 }
 
-void Menu::Update()
+void Title::Update()
 {
     SoundManager::StartSound(0);
 
@@ -28,7 +28,7 @@ void Menu::Update()
     }
 }
 
-void Menu::Draw()
+void Title::Draw()
 {
     int fontSize = 60;
     DrawGraph(0, 0, backgroundImage, TRUE);
