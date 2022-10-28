@@ -25,99 +25,102 @@
     <Filter Include="ソース ファイル\BaseClass">
       <UniqueIdentifier>{66868ab4-53aa-4eda-9ec7-d5b2e23d8e20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Append">
+      <UniqueIdentifier>{960dcaef-d1d1-44be-bc28-f8c8eefac17f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="FrameRate.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
+    <ClCompile Include="Scenes\Game.cpp">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="Scenes\Menu.cpp">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Result.cpp">
+    <ClCompile Include="Scenes\Result.cpp">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="BaseObject.cpp">
+    <ClCompile Include="BaseClass\BaseObject.cpp">
       <Filter>ソース ファイル\BaseClass</Filter>
     </ClCompile>
-    <ClCompile Include="BaseScene.cpp">
+    <ClCompile Include="BaseClass\BaseScene.cpp">
       <Filter>ソース ファイル\BaseClass</Filter>
     </ClCompile>
-    <ClCompile Include="Acrobat.cpp">
+    <ClCompile Include="Manager\AcrobatManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\GameManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\SceneManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\SoundManager.cpp">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Acrobat.cpp">
       <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
+    <ClCompile Include="Objects\Player.cpp">
       <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>ソース ファイル\Manager</Filter>
+    <ClCompile Include="Append\Collision.cpp">
+      <Filter>ソース ファイル\Append</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>ソース ファイル\Manager</Filter>
+    <ClCompile Include="Append\FrameRate.cpp">
+      <Filter>ソース ファイル\Append</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="AcrobatManager.cpp">
-      <Filter>ソース ファイル\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundManager.cpp">
-      <Filter>ソース ファイル\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInterface.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Append\UserInterface.cpp">
+      <Filter>ソース ファイル\Append</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FrameRate.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
+    <ClInclude Include="Scenes\Game.h">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Scenes\Menu.h">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Result.h">
+    <ClInclude Include="Scenes\Result.h">
       <Filter>ソース ファイル\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="BaseObject.h">
+    <ClInclude Include="BaseClass\BaseObject.h">
       <Filter>ソース ファイル\BaseClass</Filter>
     </ClInclude>
-    <ClInclude Include="BaseScene.h">
+    <ClInclude Include="BaseClass\BaseScene.h">
       <Filter>ソース ファイル\BaseClass</Filter>
     </ClInclude>
-    <ClInclude Include="Acrobat.h">
+    <ClInclude Include="Manager\AcrobatManager.h">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\GameManager.h">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SceneManager.h">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SoundManager.h">
+      <Filter>ソース ファイル\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Acrobat.h">
       <Filter>ソース ファイル\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
+    <ClInclude Include="Objects\Player.h">
       <Filter>ソース ファイル\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>ソース ファイル\Manager</Filter>
+    <ClInclude Include="Append\Collision.h">
+      <Filter>ソース ファイル\Append</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>ソース ファイル\Manager</Filter>
+    <ClInclude Include="Append\font.h">
+      <Filter>ソース ファイル\Append</Filter>
     </ClInclude>
-    <ClInclude Include="AcrobatManager.h">
-      <Filter>ソース ファイル\Manager</Filter>
+    <ClInclude Include="Append\FrameRate.h">
+      <Filter>ソース ファイル\Append</Filter>
     </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>ソース ファイル\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="font.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="UserInterface.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="Append\UserInterface.h">
+      <Filter>ソース ファイル\Append</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

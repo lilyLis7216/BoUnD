@@ -1,8 +1,8 @@
 #include "Menu.h"
 #include "DxLib.h"
-#include "SceneManager.h"
-#include "SoundManager.h"
-#include "UserInterface.h"
+#include "../Manager/SceneManager.h"
+#include "../Manager/SoundManager.h"
+#include "../Append/UserInterface.h"
 
 Menu::Menu()
 {

@@ -1,8 +1,8 @@
 #include "Acrobat.h"
 #include "DxLib.h"
-#include "Collision.h"
+#include "../Append/Collision.h"
+#include "../Manager/GameManager.h"
 #include "Player.h"
-#include "GameManager.h"
 
 Acrobat::Acrobat()
     : halfScaleX(scaleX / 2)

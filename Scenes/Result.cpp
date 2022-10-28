@@ -1,8 +1,8 @@
 #include "Result.h"
 #include "DxLib.h"
-#include "SceneManager.h"
-#include "SoundManager.h"
-#include "GameManager.h"
+#include "../Manager/SceneManager.h"
+#include "../Manager/SoundManager.h"
+#include "../Manager/GameManager.h"
 
 Result::Result()
 {

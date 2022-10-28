@@ -1,7 +1,7 @@
 #include "SceneManager.h"
-#include "Menu.h"
-#include "Game.h"
-#include "Result.h"
+#include "../Scenes/Menu.h"
+#include "../Scenes/Game.h"
+#include "../Scenes/Result.h"
 
 /** SceneManagerのインスタンス*/
 SceneManager* SceneManager::instance = nullptr;

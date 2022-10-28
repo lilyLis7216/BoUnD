@@ -1,14 +1,14 @@
 #include "Game.h"
 #include "DxLib.h"
-#include "SceneManager.h"
-#include "GameManager.h"
-#include "SoundManager.h"
-#include "AcrobatManager.h"
-#include "FrameRate.h"
-#include "Player.h"
-#include "Acrobat.h"
-#include "Collision.h"
-#include "UserInterface.h"
+#include "../Manager/SceneManager.h"
+#include "../Manager/GameManager.h"
+#include "../Manager/SoundManager.h"
+#include "../Manager/AcrobatManager.h"
+#include "../Objects/Player.h"
+#include "../Objects/Acrobat.h"
+#include "../Append/FrameRate.h"
+#include "../Append/Collision.h"
+#include "../Append/UserInterface.h"
 
 Game::Game()
     :deltaTime(0)

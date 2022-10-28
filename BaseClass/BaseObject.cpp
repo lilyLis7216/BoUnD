@@ -6,6 +6,7 @@ BaseObject::BaseObject()
     ,scaleX(0)
     ,scaleY(0)
     ,scaling(1.0f)
+    ,speed(0)
     ,image(0)
 {
 }

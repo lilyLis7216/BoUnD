@@ -1,5 +1,5 @@
 #pragma once
-#include "BaseScene.h"
+#include "../BaseClass/BaseScene.h"
 
 // ‘O•ûéŒ¾
 class FrameRate;

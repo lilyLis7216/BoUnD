@@ -1,6 +1,6 @@
 #include "AcrobatManager.h"
-#include "Acrobat.h"
-#include "Player.h"
+#include "../Objects/Acrobat.h"
+#include "../Objects/Player.h"
 #include "GameManager.h"
 
 /** AcrobatManagerのインスタンス*/

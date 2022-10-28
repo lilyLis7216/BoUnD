@@ -1,10 +1,10 @@
 #include "Collision.h"
-#include "Player.h"
-#include "Acrobat.h"
 #include "DxLib.h"
 #include <math.h>
-#include "SoundManager.h"
-#include "GameManager.h"
+#include "../Objects/Player.h"
+#include "../Objects/Acrobat.h"
+#include "../Manager/SoundManager.h"
+#include "../Manager/GameManager.h"
 
 Collision::CollInfo* Collision::player = NULL;
 Collision::CollInfo Collision::acrobat[3] = { NULL };

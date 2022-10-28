@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "DxLib.h"
-#include "SoundManager.h"
+#include "../Manager/SoundManager.h"
 
 Player::Player()
     : life(3)

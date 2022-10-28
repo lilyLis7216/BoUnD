@@ -1,9 +1,9 @@
 #include <windows.h>
 #include "DxLib.h"
-#include "SceneManager.h"
-#include "GameManager.h"
-#include "SoundManager.h"
-#include "font.h"
+#include "Manager/SceneManager.h"
+#include "Manager/GameManager.h"
+#include "Manager/SoundManager.h"
+#include "Append/font.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

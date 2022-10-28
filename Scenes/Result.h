@@ -1,5 +1,5 @@
 #pragma once
-#include "BaseScene.h"
+#include "../BaseClass/BaseScene.h"
 
 class Result : public BaseScene
 {
