@@ -8,7 +8,7 @@ SoundManager::SoundManager()
 {
     instance = this;
     AddSound("Assets/Sound/title1.mp3");   // 0 タイトルBGM
-    AddSound("Assets/Sound/game1.wav");    // 1 ゲームBGM
+    AddSound("Assets/Sound/game.mp3");     // 1 ゲームBGM
     AddSound("Assets/Sound/result1.mp3");  // 2 リザルトBGM
     AddSound("Assets/Sound/move.mp3");     // 3 移動SE
     AddSound("Assets/Sound/limit1.mp3");   // 4 移動限界SE
