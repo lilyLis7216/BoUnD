@@ -61,6 +61,11 @@ private:
     */
     void AdjustPos();
 
+    /**
+    * アニメーション処理
+    */
+    void Animation();
+
     /** 横幅の半分*/
     float halfScaleX;
 
@@ -69,6 +74,18 @@ private:
 
     /** 残機*/
     int life;
+
+    /** 歩きアニメーション*/
+    int walkAnim[2] = { 0 };
+
+    /** アニメーションのカウント*/
+    int animCount;
+
+    /** アニメーションのクールタイム*/
+    float animCoolTime;
+
+    /** アニメーションのフレーム*/
+    int animFrame;
 
     /** デルタタイム*/
     float deltaTime;

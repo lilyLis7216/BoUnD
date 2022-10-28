@@ -65,4 +65,15 @@ private:
 
     /** 今のフレームでヒットしたか*/
     bool nowHit;
+
+    /** 歩きアニメーション*/
+    int walkAnim[2] = { 0 };
+
+    int animCount;
+
+    float animCoolTime;
+
+    int animFrame;
+
+    float deltaTime;
 };

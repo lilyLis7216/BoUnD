@@ -4,6 +4,8 @@
 
 Player::Player()
     : life(3)
+    , animCount(0)
+    , animFrame(0)
     , deltaTime(0)
 {
     posX = 960.0f;
@@ -13,7 +15,8 @@ Player::Player()
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
     speed = 600.0f;
-    image = LoadGraph("Assets/Player/test.png");
+    LoadDivGraph("Assets/Player/player.png", 2, 2, 1, 400, 218, walkAnim);
+    image = walkAnim[0];
 }
 
 Player::~Player()
@@ -24,6 +27,7 @@ Player::~Player()
 void Player::Update(float deltaTime)
 {
     this->deltaTime = deltaTime;
+
     Move();
 
     AdjustPos();
@@ -39,11 +43,13 @@ void Player::Move()
     if (CheckHitKey(KEY_INPUT_LEFT))
     {
         posX -= speed * deltaTime;
+        Animation();
     }
 
     if (CheckHitKey(KEY_INPUT_RIGHT))
     {
         posX += speed * deltaTime;
+        Animation();
     }
 }
 
@@ -60,4 +66,16 @@ void Player::AdjustPos()
         posX = 1500 - halfScaleX;
         SoundManager::StartSound(4);
     }
+}
+
+void Player::Animation()
+{
+    animCoolTime -= deltaTime;
+    if (animCoolTime <= 0)
+    {
+        animCount++;
+        animCoolTime = 0.2f;
+    }
+    animFrame = animCount % 2;
+    image = walkAnim[animFrame];
 }

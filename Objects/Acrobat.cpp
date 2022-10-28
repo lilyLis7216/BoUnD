@@ -11,13 +11,18 @@ Acrobat::Acrobat()
     , jumpPower(-7.5f)
     , nowHit(false)
     , prevHit(false)
+    , animCount(0)
+    , animCoolTime(0)
+    , animFrame(0)
+    , deltaTime(0)
 {
     posX = 300;
     posY = 200;
     scaleX = 75.0f;
     scaleY = 75.0f;
     speed = 200.0f;
-    image = LoadGraph("Assets/Acrobat/test.png");
+    LoadDivGraph("Assets/Acrobat/acrobat.png", 2, 2, 1, 150, 150, walkAnim);
+    image = walkAnim[0];
 }
 
 Acrobat::~Acrobat()
@@ -57,7 +62,7 @@ void Acrobat::Update(float deltaTime, Player* player)
 
 void Acrobat::Draw()
 {
-    DrawRotaGraph((int)posX, (int)posY, scaling, 0, image, FALSE);
+    DrawRotaGraph((int)posX, (int)posY, scaling, 0, image, TRUE);
     //DrawFormatString(0, 140, GetColor(0, 0, 0), "fallObjX:%5.4f", posX);
     //DrawFormatString(0, 160, GetColor(0, 0, 0), "fallObjY:%5.4f", posY);
 }
