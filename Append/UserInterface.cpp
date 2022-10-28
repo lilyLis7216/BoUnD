@@ -3,10 +3,26 @@
 
 UserInterface::UserInterface()
 {
+    LPCSTR fontPath = "Assets/Font/07Nikumaru.otf";
+    if (AddFontResourceEx(fontPath, FR_PRIVATE, NULL) > 0)
+    {
+
+    }
+    else
+    {
+        MessageBox(NULL, "フォント読込失敗", "", MB_OK);
+    }
+    SetFontSize(60);
+    ChangeFont("07にくまるフォント", DX_CHARSET_DEFAULT);
 }
 
 UserInterface::~UserInterface()
 {
+    LPCSTR fontPath = "Assets/Font/07Nikumaru.otf";
+    if (!RemoveFontResourceEx(fontPath, FR_PRIVATE, NULL))
+    {
+        MessageBox(NULL, "remove failure", "", MB_OK);
+    }
 }
 
 void UserInterface::UIText(int x, int y, int color, const char* str, int num)

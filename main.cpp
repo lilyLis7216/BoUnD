@@ -3,7 +3,7 @@
 #include "Manager/SceneManager.h"
 #include "Manager/GameManager.h"
 #include "Manager/SoundManager.h"
-#include "Append/font.h"
+#include "Append/UserInterface.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -15,8 +15,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     SceneManager::CreateInstance();
     GameManager::CreateInstance();
     SoundManager::CreateInstance();
-    LPCSTR fontPath = "Assets/Font/07Nikumaru.otf";
-    LoadFont(fontPath);
+    UserInterface* ui = new UserInterface();
 
     // ÉQÅ[ÉÄÉãÅ[Év
     while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
@@ -34,7 +33,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     SceneManager::DeleteInstance();
     GameManager::DeleteInstance();
     SoundManager::DeleteInstance();
-    DeleteFont(fontPath);
+    delete ui;
 
     DxLib_End();
     return 0;
