@@ -71,15 +71,15 @@ void Game::UI()
 
     // コンボ表示
     UserInterface::UIBox(340, 660, 20, 120, 10);
-    UserInterface::UIText(360, 40, white, "Comb:%d", GameManager::GetComb());
+    UserInterface::UIText(360, 40, white, "Comb:%02d", GameManager::GetComb());
 
     // 最大コンボ表示
     UserInterface::UIBox(680, 1120, 20, 120, 10);
-    UserInterface::UIText(700, 40, white, "MaxComb:%d", GameManager::GetMaxComb());
+    UserInterface::UIText(700, 40, white, "MaxComb:%02d", GameManager::GetMaxComb());
 
     // スコア表示
     UserInterface::UIBox(1140, 1580, 20, 120, 10);
-    UserInterface::UIText(1160, 40, white, "Score:%d", GameManager::GetScore());
+    UserInterface::UIText(1160, 40, white, "Score:%05d", GameManager::GetScore());
 
     // 残り自機数表示
     UserInterface::UIBox(1600, 1900, 20, 120, 10);
