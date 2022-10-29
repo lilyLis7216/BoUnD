@@ -10,8 +10,8 @@ Player::Player()
 {
     posX = 960.0f;
     posY = 910.0f;
-    scaleX = 100.0f;
-    scaleY = 50.0f;
+    scaleX = 140.0f;
+    scaleY = 120.0f;
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
     speed = 600.0f;
@@ -21,31 +21,38 @@ Player::Player()
 
 Player::~Player()
 {
+    // imageの後始末
     DeleteGraph(image);
 }
 
 void Player::Update(float deltaTime)
 {
+    // メンバ変数のdeltaTimeに引数のdeltaTimeを入れる
     this->deltaTime = deltaTime;
 
+    // 移動処理
     Move();
 
+    // 位置調整処理
     AdjustPos();
 }
 
 void Player::Draw()
 {
+    // プレイヤーの描画
     DrawRotaGraph((int)posX, (int)posY, scaling, 0, image, TRUE);
 }
 
 void Player::Move()
 {
+    // 左キーが押されていたら
     if (CheckHitKey(KEY_INPUT_LEFT))
     {
         posX -= speed * deltaTime;
         Animation();
     }
 
+    // 右キーが押されていたら
     if (CheckHitKey(KEY_INPUT_RIGHT))
     {
         posX += speed * deltaTime;
@@ -55,15 +62,21 @@ void Player::Move()
 
 void Player::AdjustPos()
 {
+    // 左の制限まで来たら
     if (posX < 420 + halfScaleX)
     {
         posX = 420 + halfScaleX;
+
+        // 移動制限音を鳴らす
         SoundManager::StartSound(4);
     }
 
+    // 右の制限まで来たら
     if (posX > 1500 - halfScaleX)
     {
         posX = 1500 - halfScaleX;
+
+        // 移動制限音を鳴らす
         SoundManager::StartSound(4);
     }
 }
@@ -71,11 +84,15 @@ void Player::AdjustPos()
 void Player::Animation()
 {
     animCoolTime -= deltaTime;
+
     if (animCoolTime <= 0)
     {
         animCount++;
+
         animCoolTime = 0.2f;
     }
+
     animFrame = animCount % 2;
+
     image = walkAnim[animFrame];
 }

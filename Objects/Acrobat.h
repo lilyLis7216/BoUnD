@@ -45,7 +45,7 @@ public:
     * 
     * @param[in] flag “–‚½‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©
     */
-    void OnHit(bool flag);
+    void OnHit();
 
 private:
     /** ’µ‚Ë‚é‚©‚Ç‚¤‚©*/

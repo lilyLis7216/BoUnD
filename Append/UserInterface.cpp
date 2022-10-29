@@ -3,22 +3,28 @@
 
 UserInterface::UserInterface()
 {
+    // フォントの読み込み
     if (AddFontResourceEx("Assets/Font/07Nikumaru.otf", FR_PRIVATE, NULL) > 0)
     {
-
     }
     else
     {
+        // 失敗したときのエラーメッセージ表示
         MessageBox(NULL, "フォント読込失敗", "", MB_OK);
     }
-    SetFontSize(60);
+    // デフォルトフォントの変更
     ChangeFont("07にくまるフォント", DX_CHARSET_DEFAULT);
 }
 
 UserInterface::~UserInterface()
 {
-    if (!RemoveFontResourceEx("Assets/Font/07Nikumaru.otf", FR_PRIVATE, NULL))
+    // フォントの削除
+    if (RemoveFontResourceEx("Assets/Font/07Nikumaru.otf", FR_PRIVATE, NULL))
     {
+    }
+    else
+    {
+        // 失敗したときのエラーメッセージ表示
         MessageBox(NULL, "remove failure", "", MB_OK);
     }
 }
@@ -35,9 +41,18 @@ void UserInterface::UIText(int x, int y, int color, const char* str)
 
 void UserInterface::UIBox(int x1, int x2, int y1, int y2, int frameSize, int mainCr, int frameCr)
 {
+    // ベース
     DrawBox(x1, y1, x2, y2, mainCr, TRUE);
-    DrawLine(x1, y1 + frameSize / 2, x2, y1 + frameSize / 2, frameCr, frameSize);  // 上辺
-    DrawLine(x1, y2 - frameSize / 2, x2, y2 - frameSize / 2, frameCr, frameSize);  // 下辺
-    DrawLine(x1 + frameSize / 2, y1, x1 + frameSize / 2, y2, frameCr, frameSize);  // 左辺
-    DrawLine(x2 - frameSize / 2, y1, x2 - frameSize / 2, y2, frameCr, frameSize);  // 右辺
+
+    // 上辺
+    DrawLine(x1, y1 + frameSize / 2, x2, y1 + frameSize / 2, frameCr, frameSize);
+
+    // 下辺
+    DrawLine(x1, y2 - frameSize / 2, x2, y2 - frameSize / 2, frameCr, frameSize);
+
+    // 左辺
+    DrawLine(x1 + frameSize / 2, y1, x1 + frameSize / 2, y2, frameCr, frameSize);
+
+    // 右辺
+    DrawLine(x2 - frameSize / 2, y1, x2 - frameSize / 2, y2, frameCr, frameSize);
 }
