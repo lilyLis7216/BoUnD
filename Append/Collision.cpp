@@ -43,7 +43,33 @@ void Collision::Coll(Player* player, Acrobat* acrobat)
 
     if ((pLeft < acrobat->GetPosX()) && (acrobat->GetPosX() < pRight) && (player->GetPosY() < acrobat->GetPosY()))
     {
-        acrobat->OnHit(true);
+        acrobat->OnHit();
         SoundManager::StartSound(5);
+    }
+}
+
+void Collision::Test(Player* player, Acrobat* acrobat)
+{
+    float pX = player->GetPosX();
+    float pY = player->GetPosY();
+    float pR = player->GetHalfScaleX();
+
+    float aX = acrobat->GetPosX();
+    float aY = acrobat->GetPosY();
+    float aR = acrobat->GetHalfScaleX();
+
+    float vecX = pX - aX;
+    float vecY = pY - aY;
+    double vec = sqrt(vecX * vecX + vecY * vecY);
+
+    if (vec < pR + aR)
+    {
+        // “–‚½‚Á‚Ä‚é
+        acrobat->OnHit();
+        SoundManager::StartSound(5);
+    }
+    else
+    {
+        // “–‚½‚Á‚Ä‚È‚¢
     }
 }

@@ -18,5 +18,7 @@ public:
     ~Collision();
 
     static void Coll(Player* player, Acrobat* acrobat);
+
+    static void Test(Player* player, Acrobat* acrobat);
 private:
 };
