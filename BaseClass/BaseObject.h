@@ -14,11 +14,11 @@ public:
     virtual ~BaseObject();
 
     /**
-    * BaseObject更新処理の純仮想関数
+    * BaseObject更新処理の仮想関数
     * 
     * @param deltaTime 1フレームの経過時間
     */
-    virtual void Update(float deltaTime) = 0;
+    virtual void Update(float deltaTime) {};
 
     /**
     * BaseObject描画処理の仮想関数
@@ -56,13 +56,16 @@ public:
 protected:
     /** x座標*/
     float posX;
+
     /** y座標*/
     float posY;
 
     /** 横幅*/
     float scaleX;
+
     /** 縦幅*/
     float scaleY;
+
     /** 拡縮*/
     float scaling;
 
