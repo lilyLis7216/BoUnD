@@ -19,7 +19,6 @@ public:
     /**
     * Acrobatの更新処理
     */
-    void Update(float deltaTime) override;
     void Update(float deltaTime, Player* player);
 
     /**
@@ -57,6 +56,7 @@ private:
 
     /** 横幅半分の大きさ*/
     float halfScaleX;
+
     /** 縦幅半分の大きさ*/
     float halfScaleY;
 
@@ -69,11 +69,18 @@ private:
     /** 歩きアニメーション*/
     int walkAnim[2] = { 0 };
 
+    /** アニメーションカウント*/
     int animCount;
 
+    /** アニメーションクールタイム*/
     float animCoolTime;
 
+    /** アニメーションフレーム*/
     int animFrame;
 
+    /** デルタタイム*/
     float deltaTime;
+
+    /** 回転*/
+    float rotate;
 };
