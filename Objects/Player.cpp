@@ -15,7 +15,7 @@ Player::Player()
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
     speed = 600.0f;
-    LoadDivGraph("Assets/Player/player.png", 2, 2, 1, 400, 218, walkAnim);
+    LoadDivGraph("Assets/Player/player.png", 2, 2, 1, 400, 217, walkAnim);
     image = walkAnim[0];
 }
 
