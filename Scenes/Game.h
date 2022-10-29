@@ -46,4 +46,13 @@ private:
 
     /** デルタタイム*/
     float deltaTime;
+
+    /** 白色*/
+    int whiteCr;
+
+    /** 黒色*/
+    int blackCr;
+
+    /** 水色*/
+    int skyCr;
 };

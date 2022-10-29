@@ -1,6 +1,9 @@
 #pragma once
 #include "../BaseClass/BaseScene.h"
 
+// 前方宣言
+class FrameRate;
+
 class Title : public BaseScene
 {
 public:
@@ -25,9 +28,23 @@ public:
     void Draw()   override;
 
 private:
+    /**
+    * フェード処理
+    */
+    void Fade();
+
+    /** フレームレート制御用*/
+    FrameRate* frameRate;
+
     /** ロゴ*/
     int logo;
 
-    /** エンターキー画像*/
-    int enterImage;
+    /** デルタタイム*/
+    float deltaTime;
+
+    /** 透明度*/
+    float alpha;
+
+    /** 透明処理クールタイム*/
+    float alphaCoolTime;
 };

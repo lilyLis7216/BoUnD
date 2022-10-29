@@ -13,79 +13,140 @@
 Game::Game()
     :deltaTime(0)
 {
+    // ゲームのリセット
     GameManager::ResetAll();
+
+    // フレームレート制御のインスタンス生成
     frameRate = new FrameRate();
+
+    // プレイヤーのインスタンス生成
     player = new Player();
+
+    // コリジョンのインスタンス生成
     coll = new Collision();
+
+    // アクロバットマネージャーのインスタンス生成
     AcrobatManager::CreateInstance();
+
+    // 背景の読み込み
     backgroundImage = LoadGraph("Assets/Background/background.png");
+
+    // 白色
+    whiteCr = GetColor(255, 255, 255);
+
+    // 黒色
+    blackCr = GetColor(0, 0, 0);
+
+    // 水色
+    skyCr = GetColor(0, 255, 255);
 }
 
 Game::~Game()
 {
+    // フレームレート制御のインスタンス削除
     delete frameRate;
+
+    // プレイヤーのインスタンス削除
     delete player;
+
+    // コリジョンのインスタンス削除
     delete coll;
+
+    // アクロバットマネージャーのインスタンス削除
     AcrobatManager::DeleteInstance();
 }
 
 void Game::Update()
 {
+    // フレームレート制御クラスの更新
+    frameRate->Update();
+
+    // デルタタイムの取得
+    deltaTime = frameRate->GetDeltaTime();
+
+    // ゲームBGMの再生
     SoundManager::StartSound(1);
 
-    frameRate->Update();
-    deltaTime = frameRate->GetDeltaTime();
+    // ゲームマネージャーの更新
     GameManager::Update(deltaTime);
+
+    // プレイヤーの更新
     player->Update(deltaTime);
+
+    // アクロバッターマネージャーの更新
     AcrobatManager::Update(deltaTime, player);
 
     // Mキーが押されたら 
     if (CheckHitKey(KEY_INPUT_M))
     {
+        // 全てのサウンドを止めて
         SoundManager::StopAll();
-        // シーンをメニューに変更
+
+        // シーンをタイトル画面に変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Title);
     }
+
+    // Rキーが押されたら 
+    if (CheckHitKey(KEY_INPUT_R))
+    {
+        // 全てのサウンドを止めて
+        SoundManager::StopAll();
+
+        // シーンをタイトル画面に変更
+        SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
+    }
+
+    // 残機が無くなるか、タイマーが0になったら
     if (player->GetLife() < 1 || GameManager::GetTimer() < 0)
     {
+        // 全てのサウンドを止めて
         SoundManager::StopAll();
+
+        // シーンヲリザルト画面に変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
     }
 }
 
 void Game::Draw()
 {
+    // 背景表示
     DrawGraph(0, 0, backgroundImage, TRUE);
+
+    // プレイヤー表示
     player->Draw();
+
+    // アクロバットマネージャー表示
     AcrobatManager::Draw();
+
+    // UI表示
     UI();
 }
 
 void Game::UI()
 {
-    int white = GetColor(255, 255, 255);
-    int black = GetColor(0, 0, 0);
+    // フォントサイズの指定
+    SetFontSize(60);
 
     // 残りタイム表示
-    UserInterface::UIBox(20, 320, 20, 120, 10);
-    UserInterface::UIText(40, 40, white, "Time:%d", (int)GameManager::GetTimer());
+    UserInterface::UIBox(20, 320, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(40, 40, whiteCr, "Time:%d", (int)GameManager::GetTimer());
 
     // コンボ表示
-    UserInterface::UIBox(340, 660, 20, 120, 10);
-    UserInterface::UIText(360, 40, white, "Comb:%02d", GameManager::GetComb());
+    UserInterface::UIBox(340, 660, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(360, 40, whiteCr, "Comb:%02d", GameManager::GetComb());
 
     // 最大コンボ表示
-    UserInterface::UIBox(680, 1120, 20, 120, 10);
-    UserInterface::UIText(700, 40, white, "MaxComb:%02d", GameManager::GetMaxComb());
+    UserInterface::UIBox(680, 1120, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(700, 40, whiteCr, "MaxComb:%02d", GameManager::GetMaxComb());
 
     // スコア表示
-    UserInterface::UIBox(1140, 1580, 20, 120, 10);
-    UserInterface::UIText(1160, 40, white, "Score:%05d", GameManager::GetScore());
+    UserInterface::UIBox(1140, 1580, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(1160, 40, whiteCr, "Score:%05d", GameManager::GetScore());
 
     // 残り自機数表示
-    UserInterface::UIBox(1600, 1900, 20, 120, 10);
-    UserInterface::UIText(1620, 40, white, "Life:%d", player->GetLife());
+    UserInterface::UIBox(1600, 1900, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(1620, 40, whiteCr, "Life:%d", player->GetLife());
 
-    // 確認用
+    // fps確認用
     //DrawFormatString(36, 180, white, "FPS:%5.4f", deltaTime);
 }
