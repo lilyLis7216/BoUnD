@@ -3,8 +3,7 @@
 
 UserInterface::UserInterface()
 {
-    LPCSTR fontPath = "Assets/Font/07Nikumaru.otf";
-    if (AddFontResourceEx(fontPath, FR_PRIVATE, NULL) > 0)
+    if (AddFontResourceEx("Assets/Font/07Nikumaru.otf", FR_PRIVATE, NULL) > 0)
     {
 
     }
@@ -18,8 +17,7 @@ UserInterface::UserInterface()
 
 UserInterface::~UserInterface()
 {
-    LPCSTR fontPath = "Assets/Font/07Nikumaru.otf";
-    if (!RemoveFontResourceEx(fontPath, FR_PRIVATE, NULL))
+    if (!RemoveFontResourceEx("Assets/Font/07Nikumaru.otf", FR_PRIVATE, NULL))
     {
         MessageBox(NULL, "remove failure", "", MB_OK);
     }
@@ -35,13 +33,11 @@ void UserInterface::UIText(int x, int y, int color, const char* str)
     DrawString(x, y, str, color);
 }
 
-void UserInterface::UIBox(int x1, int x2, int y1, int y2, int frameSize)
+void UserInterface::UIBox(int x1, int x2, int y1, int y2, int frameSize, int mainCr, int frameCr)
 {
-    int sky = GetColor(0, 255, 255);
-    int black = GetColor(0, 0, 0);
-    DrawBox(x1, y1, x2, y2, black, TRUE);
-    DrawLine(x1, y1 + frameSize / 2, x2, y1 + frameSize / 2, sky, frameSize);  // è„ï”
-    DrawLine(x1, y2 - frameSize / 2, x2, y2 - frameSize / 2, sky, frameSize);  // â∫ï”
-    DrawLine(x1 + frameSize / 2, y1, x1 + frameSize / 2, y2, sky, frameSize);  // ç∂ï”
-    DrawLine(x2 - frameSize / 2, y1, x2 - frameSize / 2, y2, sky, frameSize);  // âEï”
+    DrawBox(x1, y1, x2, y2, mainCr, TRUE);
+    DrawLine(x1, y1 + frameSize / 2, x2, y1 + frameSize / 2, frameCr, frameSize);  // è„ï”
+    DrawLine(x1, y2 - frameSize / 2, x2, y2 - frameSize / 2, frameCr, frameSize);  // â∫ï”
+    DrawLine(x1 + frameSize / 2, y1, x1 + frameSize / 2, y2, frameCr, frameSize);  // ç∂ï”
+    DrawLine(x2 - frameSize / 2, y1, x2 - frameSize / 2, y2, frameCr, frameSize);  // âEï”
 }

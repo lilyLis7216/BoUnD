@@ -42,6 +42,8 @@ public:
     * @param[in] y1         左上のy座標
     * @param[in] y2         右下のy座標
     * @param[in] frameSize  枠線の太さ
+    * @param[in] mainCr     塗り潰す色
+    * @param[in] frameCr    枠の色
     */
-    static void UIBox(int x1, int x2, int y1, int y2, int frameSize);
+    static void UIBox(int x1, int x2, int y1, int y2, int frameSize, int mainCr, int frameCr);
 };
