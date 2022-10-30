@@ -5,6 +5,7 @@
 #include "../Manager/GameManager.h"
 #include "../Append/UserInterface.h"
 #include "../Append/FrameRate.h"
+#include "../Append/Controller.h"
 
 Result::Result()
     : animCount(0)
@@ -74,8 +75,8 @@ void Result::Update()
     // 半透明処理
     Fade();
 
-    // Mキーが押されたら
-    if (CheckHitKey(KEY_INPUT_M))
+    // MキーまたはコントローラーのXボタンが押されていたら
+    if (CheckHitKey(KEY_INPUT_M) || Controller::XInput())
     {
         // 全てのサウンドを止めて
         SoundManager::StopAll();
@@ -120,7 +121,8 @@ void Result::Draw()
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)alpha);
 
     // タイトル画面への指示表示
-    UserInterface::UIText(600, 850, whiteCr, "M to Title");
+    UserInterface::UIText(600, 850, GetColor(0, 0, 255), "X");
+    UserInterface::UIText(700, 850, whiteCr, " to Title");
 
     // 通常描画モードに戻す
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);

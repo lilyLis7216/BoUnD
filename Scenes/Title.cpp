@@ -4,6 +4,7 @@
 #include "../Manager/SoundManager.h"
 #include "../Append/UserInterface.h"
 #include "../Append//FrameRate.h"
+#include "../Append/Controller.h"
 
 Title::Title()
     : deltaTime(0)
@@ -48,7 +49,7 @@ void Title::Update()
     Fade();
 
     // Enterが押されたら
-    if (CheckHitKey(KEY_INPUT_RETURN))
+    if (CheckHitKey(KEY_INPUT_RETURN) || Controller::StartInput())
     {
         // 全てのサウンドを止めて
         SoundManager::StopAll();
@@ -70,7 +71,7 @@ void Title::Draw()
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)alpha);
 
     // ゲーム画面への指示表示
-    UserInterface::UIText(550, 720, GetColor(0, 0, 200), "Enter to Start!");
+    UserInterface::UIText(550, 720, GetColor(0, 0, 0), "Start to  Play!");
 
     // 通常描画モードに戻す
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);

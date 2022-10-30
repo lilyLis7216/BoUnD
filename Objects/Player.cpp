@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "DxLib.h"
 #include "../Manager/SoundManager.h"
+#include "../Append/Controller.h"
 
 Player::Player()
     : life(3)
@@ -10,7 +11,7 @@ Player::Player()
 {
     posX = 960.0f;
     posY = 910.0f;
-    scaleX = 140.0f;
+    scaleX = 120.0f;
     scaleY = 120.0f;
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
@@ -23,6 +24,12 @@ Player::~Player()
 {
     // imageの後始末
     DeleteGraph(image);
+    
+    // walkAnimの後始末
+    for (int i = 0; i < 2; i++)
+    {
+        DeleteGraph(walkAnim[i]);
+    }
 }
 
 void Player::Update(float deltaTime)
@@ -45,15 +52,15 @@ void Player::Draw()
 
 void Player::Move()
 {
-    // 左キーが押されていたら
-    if (CheckHitKey(KEY_INPUT_LEFT))
+    // 左キーまたはコントローラーの左入力があれば
+    if (CheckHitKey(KEY_INPUT_LEFT) || Controller::LeftInput())
     {
         posX -= speed * deltaTime;
         Animation();
     }
 
-    // 右キーが押されていたら
-    if (CheckHitKey(KEY_INPUT_RIGHT))
+    // 右キーまたはコントローラーの右入力があれば
+    if (CheckHitKey(KEY_INPUT_RIGHT) || Controller::RightInput())
     {
         posX += speed * deltaTime;
         Animation();
