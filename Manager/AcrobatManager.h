@@ -4,6 +4,7 @@
 // 前方宣言
 class Acrobat;
 class Player;
+class Box;
 
 class AcrobatManager
 {
@@ -25,11 +26,12 @@ public:
 
     /**
     * AcrobatManagerの更新処理
-    * 
+    *
     * @param[in] deltaTime 1フレームの経過時間
     * @param[out] player プレイヤー
+    * @param[out] box 箱
     */
-    static void Update(float deltaTime, Player* player);
+    static void Update(float deltaTime, Player* player, Box* box);
 
     /**
     * AcrobatManaerの描画処理
@@ -38,14 +40,14 @@ public:
 
     /**
     * Acrobatの追加
-    * 
+    *
     * @param[out] addAcrobat 生成するAcrobat
     */
     static void AddAcrobat(Acrobat* addAcrobat);
 
     /**
     * Acrobatの削除
-    * 
+    *
     * @param[in] i 削除するAcrobatの添え字
     */
     static void RemoveAcrobat(const int i);
@@ -62,10 +64,10 @@ private:
     * シングルトン
     */
     AcrobatManager();
-    
+
     /**
     * 生成してもよいかどうか
-    * 
+    *
     * @param[in] deltaTime 1フレームの経過時間
     */
     static bool IsCreateAcrobat(float deltaTime);

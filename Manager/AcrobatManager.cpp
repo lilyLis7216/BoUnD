@@ -47,7 +47,7 @@ void AcrobatManager::DeleteInstance()
     }
 }
 
-void AcrobatManager::Update(float deltaTime, Player* player)
+void AcrobatManager::Update(float deltaTime, Player* player, Box* box)
 {
     // 生成できる状態なら
     if (IsCreateAcrobat(deltaTime))
@@ -66,9 +66,9 @@ void AcrobatManager::Update(float deltaTime, Player* player)
         auto pool = instance->acrobatPool[i];
         
         // poolの更新
-        pool->Update(deltaTime, player);
+        pool->Update(deltaTime, player, box);
         
-        if (pool->GetPosX() > 1500)
+        if (pool->GetInBox())
         {
             RemoveAcrobat(i);
         }
@@ -121,8 +121,8 @@ bool AcrobatManager::IsCreateAcrobat(float deltaTime)
     // 生成のクールタイムからデルタタイムを引く
     createInterval -= deltaTime;
 
-    // 生成のクールタイムがない状態でかつ現在の数が最大数より少なければ
-    if (createInterval < 0 && acrobatNum < acrobatNumMax)
+    // 生成のクールタイムがない状態でかつ現在の数が最大数より少なく、残り時間が3秒以上であれば
+    if (createInterval < 0 && acrobatNum < acrobatNumMax && GameManager::GetTimer() > 3.0f)
     {
         // 生成を許可する
         return true;
