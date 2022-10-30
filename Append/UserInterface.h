@@ -4,14 +4,19 @@ class UserInterface
 {
 public:
     /**
-    * UserInterfaceのコンストラクタ
-    */
-    UserInterface();
-
-    /**
     * UserInterfaceのデストラクタ
     */
     ~UserInterface();
+
+    /**
+    * UserInterfaceのインスタンスの生成
+    */
+    static void CreateInstance();
+
+    /**
+    * UserInterfaceのインスタンスの削除
+    */
+    static void DeleteInstance();
 
     /**
     * テキスト（数値あり）
@@ -46,4 +51,14 @@ public:
     * @param[in] frameCr    枠の色
     */
     static void UIBox(int x1, int x2, int y1, int y2, int frameSize, int mainCr, int frameCr);
+
+private:
+    /**
+    * UserInterfaceのコンストラクタ
+    * シングルトン
+    */
+    UserInterface();
+
+    /** UserInterfaceのインスタンス*/
+    static UserInterface* instance;
 };

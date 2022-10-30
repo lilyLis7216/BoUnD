@@ -1,6 +1,8 @@
 #include "UserInterface.h"
 #include "DxLib.h"
 
+UserInterface* UserInterface::instance = nullptr;
+
 UserInterface::UserInterface()
 {
     // フォントの読み込み
@@ -26,6 +28,29 @@ UserInterface::~UserInterface()
     {
         // 失敗したときのエラーメッセージ表示
         MessageBox(NULL, "remove failure", "", MB_OK);
+    }
+}
+
+void UserInterface::CreateInstance()
+{
+    // インスタンスの中身がなければ
+    if (!instance)
+    {
+        // インスタンスを生成する
+        instance = new UserInterface();
+    }
+}
+
+void UserInterface::DeleteInstance()
+{
+    // インスタンスの中身があれば
+    if (instance)
+    {
+        // インスタンスを削除する
+        delete instance;
+
+        // インスタンスの中身をnullptrに設定する
+        instance = nullptr;
     }
 }
 
