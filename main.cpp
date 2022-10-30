@@ -4,6 +4,7 @@
 #include "Manager/GameManager.h"
 #include "Manager/SoundManager.h"
 #include "Append/UserInterface.h"
+#include "Append/Controller.h"
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -22,13 +23,21 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     SoundManager::CreateInstance();
 
     // ユーザインターフェースのインスタンス生成
-    UserInterface* ui = new UserInterface();
+    UserInterface::CreateInstance();
+
+    // コントローラーのインスタンス生成
+    Controller::CreateInstance();
+
 
     // ゲームループ
-    while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
+    // エラーメッセジがなく、ESCキーが押されておらず、Backボタンの入力がない間ループする
+    while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0 && !Controller::BackInput())
     {
         // シーンの更新
         SceneManager::Update();
+
+        // コントローラーの更新
+        Controller::Update();
 
         //画面更新処理
         ClearDrawScreen();
@@ -39,17 +48,20 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         ScreenFlip();
     }
 
-    // シーンマネージャーのインスタンス削除
-    SceneManager::DeleteInstance();
+    // コントローラーのインスタンス削除
+    Controller::DeleteInstance();
 
-    // ゲームマネージャーのインスタンス削除
-    GameManager::DeleteInstance();
+    // ユーザインターフェースのインスタンス削除
+    UserInterface::DeleteInstance();
 
     // サウンドマネージャーのインスタンス削除
     SoundManager::DeleteInstance();
 
-    // ユーザインターフェースのインスタンス削除
-    delete ui;
+    // ゲームマネージャーのインスタンス削除
+    GameManager::DeleteInstance();
+
+    // シーンマネージャーのインスタンス削除
+    SceneManager::DeleteInstance();
 
     DxLib_End();
     return 0;
