@@ -104,11 +104,12 @@ void Acrobat::Move()
         nowHit = false;
     }
 
-    float tmp = (float)GetRand(5) + 10;
+    //float tmp = (float)GetRand(5) + 10;
 
     if (isBound)
     {
-        jumpPower = -tmp;
+        //jumpPower = -tmp;
+        jumpPower = -15.0f;
     }
     else
     {

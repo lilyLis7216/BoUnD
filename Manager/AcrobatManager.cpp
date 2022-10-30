@@ -2,6 +2,7 @@
 #include "../Objects/Acrobat.h"
 #include "../Objects/Player.h"
 #include "GameManager.h"
+#include "DxLib.h"
 
 /** AcrobatManagerのインスタンス*/
 AcrobatManager* AcrobatManager::instance;
@@ -56,7 +57,7 @@ void AcrobatManager::Update(float deltaTime, Player* player, Box* box)
         AddAcrobat(new Acrobat);
 
         // クールタイムを設定する
-        createInterval = 3.5f;
+        createInterval = (float)GetRand(5) + 1;
     }
 
     // プール全てのループ
