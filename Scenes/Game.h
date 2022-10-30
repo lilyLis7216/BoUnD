@@ -4,6 +4,7 @@
 // 前方宣言
 class FrameRate;
 class Player;
+class Box;
 class Collision;
 
 class Game : public BaseScene
@@ -40,6 +41,9 @@ private:
 
     /** プレイヤー*/
     Player* player;
+
+    /** 箱*/
+    Box* box;
 
     /** 当たり判定*/
     Collision* coll;

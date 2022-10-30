@@ -6,6 +6,7 @@
 #include "../Manager/AcrobatManager.h"
 #include "../Objects/Player.h"
 #include "../Objects/Acrobat.h"
+#include "../Objects//Box.h"
 #include "../Append/FrameRate.h"
 #include "../Append/Collision.h"
 #include "../Append/UserInterface.h"
@@ -21,6 +22,9 @@ Game::Game()
 
     // プレイヤーのインスタンス生成
     player = new Player();
+
+    // 箱のインスタンス生成
+    box = new Box();
 
     // コリジョンのインスタンス生成
     coll = new Collision();
@@ -49,6 +53,9 @@ Game::~Game()
     // プレイヤーのインスタンス削除
     delete player;
 
+    // 箱のインスタンス削除
+    delete box;
+
     // コリジョンのインスタンス削除
     delete coll;
 
@@ -74,7 +81,7 @@ void Game::Update()
     player->Update(deltaTime);
 
     // アクロバッターマネージャーの更新
-    AcrobatManager::Update(deltaTime, player);
+    AcrobatManager::Update(deltaTime, player, box);
 
     // Mキーが押されたら 
     if (CheckHitKey(KEY_INPUT_M))
@@ -111,6 +118,9 @@ void Game::Draw()
 {
     // 背景表示
     DrawGraph(0, 0, backgroundImage, TRUE);
+
+    // 箱表示
+    box->Draw();
 
     // プレイヤー表示
     player->Draw();
