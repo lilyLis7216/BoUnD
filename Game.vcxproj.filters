@@ -75,6 +75,12 @@
     <ClCompile Include="Append\UserInterface.cpp">
       <Filter>ソース ファイル\Append</Filter>
     </ClCompile>
+    <ClCompile Include="Objects\Box.cpp">
+      <Filter>ソース ファイル\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Append\Controller.cpp">
+      <Filter>ソース ファイル\Append</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scenes\Game.h">
@@ -117,6 +123,12 @@
       <Filter>ソース ファイル\Append</Filter>
     </ClInclude>
     <ClInclude Include="Append\UserInterface.h">
+      <Filter>ソース ファイル\Append</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\Box.h">
+      <Filter>ソース ファイル\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Append\Controller.h">
       <Filter>ソース ファイル\Append</Filter>
     </ClInclude>
   </ItemGroup>
