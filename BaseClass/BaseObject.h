@@ -53,6 +53,20 @@ public:
     */
     virtual float GetScaleY() const { return scaleY; }
 
+    /**
+    * ‰¡•”¼•ª‚Ì‘å‚«‚³‚Ìæ“¾
+    *
+    * @return float ‰¡•”¼•ª‚Ì‘å‚«‚³
+    */
+    float GetHalfScaleX() const { return halfScaleX; }
+
+    /**
+    * c•”¼•ª‚Ì‘å‚«‚³‚Ìæ“¾
+    *
+    * @return float c•”¼•ª‚Ì‘å‚«‚³
+    */
+    float GetHalfScaleY() const { return halfScaleY; }
+
 protected:
     /** xÀ•W*/
     float posX;
@@ -65,6 +79,12 @@ protected:
 
     /** c•*/
     float scaleY;
+
+    /** ‰¡•‚Ì”¼•ª*/
+    float halfScaleX;
+
+    /** c•‚Ì”¼•ª*/
+    float halfScaleY;
 
     /** Šgk*/
     float scaling;

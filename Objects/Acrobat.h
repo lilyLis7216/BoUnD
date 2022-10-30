@@ -1,7 +1,9 @@
 #pragma once
 #include "../BaseClass/BaseObject.h"
 
+// 前方宣言
 class Player;
+class Box;
 
 class Acrobat : public BaseObject
 {
@@ -19,26 +21,12 @@ public:
     /**
     * Acrobatの更新処理
     */
-    void Update(float deltaTime, Player* player);
+    void Update(float deltaTime, Player* player, Box* box);
 
     /**
     * Acrobatの描画処理
     */
     void Draw() override;
-
-    /**
-    * 横幅半分の大きさの取得
-    * 
-    * @return float 横幅半分の大きさ
-    */
-    float GetHalfScaleX() const { return halfScaleX; }
-
-    /**
-    * 縦幅半分の大きさの取得
-    * 
-    * @return float 縦幅半分の大きさ
-    */
-    float GetHalfScaleY() const { return halfScaleY; }
 
     /**
     * 当たった時の処理
@@ -47,18 +35,35 @@ public:
     */
     void OnHit();
 
+    /**
+    * 箱に到達したときの処理
+    */
+    void boxHit() { inBox = true; }
+
+    /**
+    * 箱の中かどうかの取得
+    * 
+    * @return inBox
+    */
+    bool GetInBox() const { return inBox; }
+
 private:
+
+    /**
+    * 移動処理
+    */
+    void Move();
+
+    /**
+    * アニメーション処理
+    */
+    void Animation();
+
     /** 跳ねるかどうか*/
     bool isBound;
 
     /** 跳躍力*/
     float jumpPower;
-
-    /** 横幅半分の大きさ*/
-    float halfScaleX;
-
-    /** 縦幅半分の大きさ*/
-    float halfScaleY;
 
     /** 前のフレームでヒットしていたか*/
     bool prevHit;
@@ -83,4 +88,7 @@ private:
 
     /** 回転*/
     float rotate;
+
+    /** 箱の中かどうか*/
+    bool inBox;
 };

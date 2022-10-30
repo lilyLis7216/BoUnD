@@ -25,20 +25,6 @@ public:
     void Draw() override;
 
     /**
-    * 横幅半分の大きさの取得
-    * 
-    * @return float 横幅半分の大きさ
-    */
-    float GetHalfScaleX() const { return halfScaleX; }
-
-    /**
-    * 縦幅半分の大きさの取得
-    * 
-    * @return float 縦幅半分の大きさ
-    */
-    float GetHalfScaleY() const { return halfScaleY; }
-
-    /**
     * 自機失敗処理
     */
     void Miss() { life--; }
@@ -65,12 +51,6 @@ private:
     * アニメーション処理
     */
     void Animation();
-
-    /** 横幅の半分*/
-    float halfScaleX;
-
-    /** 縦幅の半分*/
-    float halfScaleY;
 
     /** 残機*/
     int life;
