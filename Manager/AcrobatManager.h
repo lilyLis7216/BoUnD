@@ -10,7 +10,7 @@ class Box;
 * AcrobatManager
 * アクロバットの管理クラス
 */
-class AcrobatManager
+class AcrobatManager final
 {
 public:
     /**

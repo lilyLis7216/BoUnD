@@ -3,7 +3,7 @@
 /**
 * ControllerƒNƒ‰ƒX
 */
-class Controller final
+class Controller
 {
 public:
     /**

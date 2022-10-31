@@ -5,7 +5,7 @@
 * SoundManager
 * サウンド管理クラス
 */
-class SoundManager
+class SoundManager final
 {
 public:
     /**
