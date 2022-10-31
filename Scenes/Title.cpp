@@ -7,7 +7,10 @@
 #include "../Append/Controller.h"
 
 Title::Title()
-    : deltaTime(0)
+    : animCount(0)
+    , animCoolTime(0)
+    , animFrame(0)
+    ,deltaTime(0)
     , alpha(100)
     , alphaCoolTime(0.5f)
 {
@@ -15,11 +18,22 @@ Title::Title()
     frameRate = new FrameRate();
 
     // 背景の読み込み
-    backgroundImage = LoadGraph("Assets/Background/title.png");
+    backgroundImage = LoadGraph("Assets/Background/titleBG.png");
 
     // ロゴの読み込み
     logo = LoadGraph("Assets/Background/logo.png");
 
+    // 紫色ピエロのアニメーション読み込み
+    LoadDivGraph("Assets/Acrobat/clownPurpleIdleAnim.png", 2, 2, 1, 120, 188, purpleIdle);
+
+    // 水色ピエロのアニメーション読み込み
+    LoadDivGraph("Assets/Acrobat/clownSkyIdleAnim.png", 2, 2, 1, 120, 188, skyIdle);
+
+    // 紫色ピエロの初期画像
+    clownPurple = purpleIdle[0];
+
+    // 水色ピエロの初期画像
+    clownSky = skyIdle[0];
 }
 
 Title::~Title()
@@ -45,6 +59,9 @@ void Title::Update()
     // タイトルBGMの再生
     SoundManager::StartSound(0);
 
+    // キャラのアニメーション
+    CharaAnim();
+
     // 半透明処理
     Fade();
 
@@ -66,6 +83,12 @@ void Title::Draw()
 
     // 背景の表示
     DrawGraph(0, 0, backgroundImage, TRUE);
+
+    // 紫色ピエロ表示
+    DrawRotaGraph(1600, 850, 2.0f, 0, clownPurple, TRUE);
+
+    // 水色ピエロ表示
+    DrawRotaGraph(300, 850, 2.0f, 0, clownSky, TRUE, TRUE);
     
     // 半透明描画モード
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)alpha);
@@ -78,6 +101,24 @@ void Title::Draw()
 
     // ロゴの表示
     DrawRotaGraph(960, 300, 3.0f, 0, logo, TRUE);
+}
+
+void Title::CharaAnim()
+{
+    animCoolTime -= deltaTime;
+
+    if (animCoolTime <= 0)
+    {
+        animCount++;
+
+        animCoolTime = 0.5f;
+    }
+
+    animFrame = animCount % 2;
+
+    clownPurple = purpleIdle[animFrame];
+
+    clownSky = skyIdle[animFrame];
 }
 
 void Title::Fade()
