@@ -15,7 +15,7 @@ Player::Player()
     scaleY = 120.0f;
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
-    speed = 600.0f;
+    speed = 800.0f;
     LoadDivGraph("Assets/Player/player.png", 2, 2, 1, 400, 217, walkAnim);
     image = walkAnim[0];
 }
@@ -23,7 +23,7 @@ Player::Player()
 Player::~Player()
 {
     // image‚ÌŒãŽn––
-    DeleteGraph(image);
+    image = -1;
     
     // walkAnim‚ÌŒãŽn––
     for (int i = 0; i < 2; i++)

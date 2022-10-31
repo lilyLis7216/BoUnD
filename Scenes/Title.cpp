@@ -46,6 +46,21 @@ Title::~Title()
 
     // ロゴの後始末
     DeleteGraph(logo);
+
+    for (int i = 0; i < 2; i++)
+    {
+        // 紫色ピエロ待機の後始末
+        DeleteGraph(purpleIdle[i]);
+
+        // 水色ピエロ待機の後始末
+        DeleteGraph(skyIdle[i]);
+    }
+
+    // 紫色ピエロの後始末
+    clownPurple = -1;
+
+    // 水色ピエロの後始末
+    clownSky = -1;
 }
 
 void Title::Update()

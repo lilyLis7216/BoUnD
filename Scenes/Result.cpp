@@ -51,6 +51,24 @@ Result::~Result()
 
     // 背景の後始末
     DeleteGraph(backgroundImage);
+
+    for (int i = 0; i < 2; i++)
+    {
+        // 紫色ピエロジャンプの後始末
+        DeleteGraph(purpleJump[i]);
+
+        // 水色ピエロジャンプの後始末
+        DeleteGraph(skyJump[i]);
+    }
+
+    // 赤色ピエロの後始末
+    DeleteGraph(clownRed);
+
+    // 紫色ピエロの後始末
+    clownPurple = -1;
+
+    // 水色ピエロの後始末
+    clownSky = -1;
 }
 
 void Result::Update()

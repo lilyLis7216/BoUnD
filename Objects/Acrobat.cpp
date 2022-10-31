@@ -31,7 +31,7 @@ Acrobat::Acrobat()
 Acrobat::~Acrobat()
 {
     // image‚ÌŒãŽn––
-    DeleteGraph(image);
+    image = -1;
 
     // walkAnim‚ÌŒãŽn––
     for (int i = 0; i < 2; i++)

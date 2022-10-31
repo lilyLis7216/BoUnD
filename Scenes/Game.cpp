@@ -61,6 +61,9 @@ Game::~Game()
 
     // アクロバットマネージャーのインスタンス削除
     AcrobatManager::DeleteInstance();
+
+    // 背景の後始末
+    DeleteGraph(backgroundImage);
 }
 
 void Game::Update()

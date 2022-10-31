@@ -4,7 +4,7 @@
 Box::Box()
 {
     posX = 1690.0f;
-    posY = 850.0f;
+    posY = 720.0f;
     scaleX = 420.0f;
     scaleY = 344.0f;
     halfScaleX = scaleX / 2;
@@ -14,6 +14,7 @@ Box::Box()
 
 Box::~Box()
 {
+    DeleteGraph(image);
 }
 
 void Box::Update(float deltaTime)
