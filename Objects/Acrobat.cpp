@@ -17,7 +17,7 @@ Acrobat::Acrobat()
     , inBox(false)
 {
     posX = 300.0f;
-    posY = 200.0f;
+    posY = 250.0f;
     scaleX = 40.0f;
     scaleY = 120.0f;
     halfScaleX = scaleX / 2;
