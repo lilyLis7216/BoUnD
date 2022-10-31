@@ -79,7 +79,7 @@ private:
     /**
     * クールタイム
     */
-    static void CoolTime(float deltaTime);
+    static float CoolTime();
 
     /** アクロバットマネージャーのインスタンス*/
     static AcrobatManager* instance;

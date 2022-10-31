@@ -59,7 +59,7 @@ void AcrobatManager::Update(float deltaTime, Player* player, Box* box)
         AddAcrobat(new Acrobat);
 
         // クールタイムを設定する
-        createInterval = (float)GetRand(5) + 1;
+        createInterval = CoolTime();
     }
 
     // プール全てのループ
@@ -134,7 +134,22 @@ bool AcrobatManager::IsCreateAcrobat(float deltaTime)
     return false;
 }
 
-void AcrobatManager::CoolTime(float deltaTime)
+float AcrobatManager::CoolTime()
 {
+    float ct = 0;
 
+    if (GameManager::GetTimer() > 20.0f)
+    {
+        ct = 3.0f;
+    }
+    else if (GameManager::GetTimer() > 10.0f)
+    {
+        ct = 2.0f;
+    }
+    else if (GameManager::GetTimer() > 1.0f)
+    {
+        ct = 1.5f;
+    }
+
+    return ct;
 }
