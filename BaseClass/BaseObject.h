@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+* BaseObject
+* ゲームオブジェクトの基底クラス
+*/
 class BaseObject
 {
 public:

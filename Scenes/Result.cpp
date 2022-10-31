@@ -20,22 +20,22 @@ Result::Result()
     frameRate = new FrameRate();
 
     // 背景の読み込み
-    backgroundImage = LoadGraph("Assets/Background/result.png");
+    backgroundImage = LoadGraph("Assets/Background/resultBG.png");
 
     // 紫色ピエロのアニメーション読み込み
-    LoadDivGraph("Assets/Acrobat/clownPurpleAnim.png", 2, 2, 1, 120, 188, purpleIdle);
+    LoadDivGraph("Assets/Acrobat/clownPurpleJumpAnim.png", 2, 2, 1, 120, 210, purpleJump);
 
     // 水色ピエロのアニメーション読み込み
-    LoadDivGraph("Assets/Acrobat/clownSkyAnim.png", 2, 2, 1, 120, 188, skyIdle);
+    LoadDivGraph("Assets/Acrobat/clownSkyJumpAnim.png", 2, 2, 1, 120, 210, skyJump);
 
     // 赤色ピエロの読み込み
     clownRed = LoadGraph("Assets/Acrobat/p3_16.png");
 
     // 紫色ピエロの初期画像
-    clownPurple = purpleIdle[0];
+    clownPurple = purpleJump[0];
 
     // 水色ピエロの初期画像
-    clownSky = purpleIdle[0];
+    clownSky = skyJump[0];
 
     // 白色
     whiteCr = GetColor(255, 255, 255);
@@ -109,7 +109,7 @@ void Result::Draw()
     DrawLine(500, 600, 1350, 600, whiteCr, 10);
 
     // 赤色ピエロ表示
-    DrawRotaGraph(1570, 460, 1.0f, 0, clownRed, TRUE, TRUE, TRUE);
+    DrawRotaGraph(1570, 440, 1.0f, 0, clownRed, TRUE, TRUE, TRUE);
 
     // 紫色ピエロ表示
     DrawRotaGraph(1600, 850, 2.0f, 0, clownPurple, TRUE);
@@ -141,9 +141,9 @@ void Result::CharaAnim()
 
     animFrame = animCount % 2;
 
-    clownPurple = purpleIdle[animFrame];
+    clownPurple = purpleJump[animFrame];
 
-    clownSky = skyIdle[animFrame];
+    clownSky = skyJump[animFrame];
 }
 
 void Result::Fade()

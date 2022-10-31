@@ -1,10 +1,15 @@
 #pragma once
 
+// 前方宣言
 class BaseObject;
 class Player;
 class Acrobat;
 class Box;
 
+/**
+* Collision
+* 当たり判定クラス
+*/
 class Collision
 {
 public:
@@ -41,5 +46,4 @@ public:
     * @param[out] acrobat アクロバット
     */
     static void CollBtoA(Box* box, Acrobat* acrobat);
-private:
 };

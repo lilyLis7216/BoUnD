@@ -1,12 +1,25 @@
 #include "Controller.h"
 #include "DxLib.h"
 
+/** コントローラーの実体*/
 Controller* Controller::instance = nullptr;
+
+/** コントローラーの入力状態*/
 int Controller::padState;
+
+/** 左入力*/
 bool Controller::leftInput;
+
+/** 右入力*/
 bool Controller::rightInput;
+
+/** スタートボタン入力*/
 bool Controller::startInput;
+
+/** Xボタン入力*/
 bool Controller::xInput;
+
+/** バックボタン入力*/
 bool Controller::backInput;
 
 Controller::Controller()

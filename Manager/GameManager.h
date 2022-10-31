@@ -1,25 +1,29 @@
 #pragma once
 
+/**
+* GameManager
+* ゲーム全体の管理クラス
+*/
 class GameManager final
 {
 public:
     /**
-    * GameManagerのデストラクタ
+    * ゲームマネージャーのデストラクタ
     */
     ~GameManager();
 
     /**
-    * インスタンスの生成
+    * ゲームマネージャーのインスタンス生成
     */
     static void CreateInstance();
 
     /**
-    * インスタンスの削除
+    * ゲームマネージャーのインスタンス削除
     */
     static void DeleteInstance();
 
     /**
-    * GameManagerの更新処理
+    * ゲームマネージャーの更新処理
     * 
     * @param[in] deltaTime 1フレームの経過時間
     */
@@ -97,12 +101,12 @@ public:
 
 private:
     /**
-    * GameManagerのコンストラクタ
+    * ゲームマネージャーのコンストラクタ
     * シングルトン
     */
     GameManager();
 
-    /** GameManagerのインスタンス*/
+    /** ゲームマネージャーのインスタンス*/
     static GameManager* instance;
 
     /** タイマー*/

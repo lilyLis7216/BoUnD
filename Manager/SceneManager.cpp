@@ -3,7 +3,7 @@
 #include "../Scenes/Game.h"
 #include "../Scenes/Result.h"
 
-/** SceneManagerのインスタンス*/
+/** シーンマネージャーのインスタンス*/
 SceneManager* SceneManager::instance = nullptr;
 
 /** 現在のシーンの管理変数*/

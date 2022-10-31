@@ -6,26 +6,30 @@ class Acrobat;
 class Player;
 class Box;
 
+/**
+* AcrobatManager
+* アクロバットの管理クラス
+*/
 class AcrobatManager
 {
 public:
     /**
-    * AcrobatManagerのデストラクタ
+    * アクロバットマネージャーのデストラクタ
     */
     ~AcrobatManager();
 
     /**
-    * AcrobatManagerのインスタンスの生成
+    * アクロバットマネージャーのインスタンスの生成
     */
     static void CreateInstance();
 
     /**
-    * AcrobatManaerのインスタンスの削除
+    * アクロバットマネージャーのインスタンスの削除
     */
     static void DeleteInstance();
 
     /**
-    * AcrobatManagerの更新処理
+    * アクロバットマネージャーの更新処理
     *
     * @param[in] deltaTime 1フレームの経過時間
     * @param[out] player プレイヤー
@@ -34,33 +38,33 @@ public:
     static void Update(float deltaTime, Player* player, Box* box);
 
     /**
-    * AcrobatManaerの描画処理
+    * アクロバットマネージャーの描画処理
     */
     static void Draw();
 
     /**
-    * Acrobatの追加
+    * アクロバットの追加
     *
     * @param[out] addAcrobat 生成するAcrobat
     */
     static void AddAcrobat(Acrobat* addAcrobat);
 
     /**
-    * Acrobatの削除
+    * アクロバットの削除
     *
     * @param[in] i 削除するAcrobatの添え字
     */
     static void RemoveAcrobat(const int i);
 
     /**
-    * 全てのAcrobatの削除
+    * 全てのアクロバットの削除
     */
     static void RemoveAll();
 
 
 private:
     /**
-    * AcrobatManagerのコンストラクタ
+    * アクロバットマネージャーのコンストラクタ
     * シングルトン
     */
     AcrobatManager();
@@ -72,16 +76,21 @@ private:
     */
     static bool IsCreateAcrobat(float deltaTime);
 
-    /** AcrobatManagerのインスタンス*/
+    /**
+    * クールタイム
+    */
+    static void CoolTime(float deltaTime);
+
+    /** アクロバットマネージャーのインスタンス*/
     static AcrobatManager* instance;
 
-    /** Acrobat保存配列*/
+    /** アクロバット保存配列*/
     std::vector<Acrobat*> acrobatPool;
 
-    /** AcrobatObjectの最大数*/
+    /** アクロバットの最大数*/
     static const int acrobatNumMax = 3;
 
-    /** 現在のAcrobatObjectの数*/
+    /** 現在のアクロバットの数*/
     static int acrobatNum;
 
     /** 生成の間隔*/

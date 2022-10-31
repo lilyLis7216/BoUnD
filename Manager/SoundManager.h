@@ -1,21 +1,25 @@
 #pragma once
 #include <vector>
 
+/**
+* SoundManager
+* サウンド管理クラス
+*/
 class SoundManager
 {
 public:
     /**
-    * SoundManagerのデストラクタ
+    * サウンドマネージャーのデストラクタ
     */
     ~SoundManager();
 
     /**
-    * SoundManagerのインスタンスの生成
+    * サウンドマネージャーのインスタンスの生成
     */
     static void CreateInstance();
 
     /**
-    * SoundManagerのインスタンスの削除
+    * サウンドマネージャーのインスタンスの削除
     */
     static void DeleteInstance();
 
@@ -49,12 +53,12 @@ public:
 
 private:
     /**
-    * SoundManagerのコンストラクタ
+    * サウンドマネージャーのコンストラクタ
     * シングルトン
     */
     SoundManager();
 
-    /** SoundManagerのインスタンス*/
+    /** サウンドマネージャーのインスタンス*/
     static SoundManager* instance;
 
     /** サウンド保存配列*/

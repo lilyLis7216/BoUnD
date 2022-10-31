@@ -16,7 +16,9 @@ float AcrobatManager::createInterval;
 AcrobatManager::AcrobatManager()
 {
     instance = this;
+
     acrobatNum = 0;
+
     createInterval = 0.0f;
 }
 
@@ -130,4 +132,9 @@ bool AcrobatManager::IsCreateAcrobat(float deltaTime)
     }
     // ¶¬‚Ì‹–‰Â‚ğ‚µ‚È‚¢
     return false;
+}
+
+void AcrobatManager::CoolTime(float deltaTime)
+{
+
 }

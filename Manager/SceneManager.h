@@ -5,6 +5,10 @@ class Title;
 class Game;
 class Result;
 
+/**
+* SceneManager
+* シーン管理クラス
+*/
 class SceneManager final
 {
 public:
@@ -18,27 +22,27 @@ public:
     };
 
     /**
-    * SceneManagerのデストラクタ
+    * シーンマネージャーのデストラクタ
     */
     ~SceneManager();
 
     /**
-    * SceneManagerのインスタンスの生成
+    * シーンマネージャーのインスタンスの生成
     */
     static void CreateInstance();
 
     /**
-    * SceneManagerのインスタンスの削除
+    * シーンマネージャーのインスタンスの削除
     */
     static void DeleteInstance();
 
     /**
-    * SceneManagerの更新処理
+    * シーンマネージャーの更新処理
     */
     static void Update();
 
     /**
-    * SceneManagerの描画処理
+    * シーンマネージャーの描画処理
     */
     static void Draw();
 
@@ -50,7 +54,7 @@ public:
 
 private:
     /**
-    * SceneManagerのコンストラクタ
+    * シーンマネージャーのコンストラクタ
     * シングルトン
     */
     SceneManager();
@@ -69,7 +73,7 @@ private:
     */
     static void FinModule(SceneState scene);
 
-    /** SceneManagerのインスタンス*/
+    /** シーンマネージャーのインスタンス*/
     static SceneManager* instance;
 
     /** 現在のシーンの管理変数*/

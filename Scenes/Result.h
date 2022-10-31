@@ -1,18 +1,23 @@
 #pragma once
 #include "../BaseClass/BaseScene.h"
 
+// 前方宣言
 class FrameRate;
 
+/**
+* Resultクラス
+* BaseSceneを継承している
+*/
 class Result : public BaseScene
 {
 public:
     /**
-    * Resultのコンストラクタ
+    * リザルトのコンストラクタ
     */
     Result();
 
     /**
-    * Resultのデストラクタ
+    * リザルトのデストラクタ
     */
     ~Result();
 
@@ -27,7 +32,6 @@ public:
     void Draw() override;
 
 private:
-
     /**
     * キャラアニメーション
     */
@@ -56,11 +60,11 @@ private:
     /** 水色ピエロ*/
     int clownSky;
 
-    /** 紫色ピエロの待機アニメーション*/
-    int purpleIdle[2];
+    /** 紫色ピエロのジャンプアニメーション*/
+    int purpleJump[2];
 
-    /** 水色ピエロの待機アニメーション*/
-    int skyIdle[2];
+    /** 水色ピエロのジャンプアニメーション*/
+    int skyJump[2];
 
     /** アニメーションのカウント*/
     int animCount;

@@ -1,6 +1,6 @@
 #include "GameManager.h"
 
-/** GameManagerのインスタンス*/
+/** ゲームマネージャーのインスタンス*/
 GameManager* GameManager::instance = nullptr;
 
 /** タイマー*/

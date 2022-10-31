@@ -7,16 +7,20 @@ class Player;
 class Box;
 class Collision;
 
+/**
+* Gameクラス
+* BaseSceneを継承している
+*/
 class Game : public BaseScene
 {
 public:
     /**
-    * Gameのコンストラクタ
+    * ゲームのコンストラクタ
     */
     Game();
 
     /**
-    * Gameのデストラクタ
+    * ゲームのデストラクタ
     */
     ~Game();
 

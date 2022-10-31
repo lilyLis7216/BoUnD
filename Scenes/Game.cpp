@@ -33,7 +33,7 @@ Game::Game()
     AcrobatManager::CreateInstance();
 
     // ”wŒi‚Ì“Ç‚İ‚İ
-    backgroundImage = LoadGraph("Assets/Background/background.png");
+    backgroundImage = LoadGraph("Assets/Background/gameBG.png");
 
     // ”’F
     whiteCr = GetColor(255, 255, 255);

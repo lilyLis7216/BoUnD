@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+* UserInterface
+* UIŠÇ—ƒNƒ‰ƒX
+*/
 class UserInterface
 {
 public:

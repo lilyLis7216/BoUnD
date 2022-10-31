@@ -1,6 +1,7 @@
 #include "UserInterface.h"
 #include "DxLib.h"
 
+/** UI‚ÌŽÀ‘Ì*/
 UserInterface* UserInterface::instance = nullptr;
 
 UserInterface::UserInterface()

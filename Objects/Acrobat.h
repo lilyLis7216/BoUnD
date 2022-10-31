@@ -5,26 +5,30 @@
 class Player;
 class Box;
 
+/**
+* Acrobatクラス
+* BaseObjectを継承している
+*/
 class Acrobat : public BaseObject
 {
 public:
     /**
-    * Acrobatのコンストラクタ
+    * アクロバットのコンストラクタ
     */
     Acrobat();
 
     /**
-    * Acrobatのデストラクタ
+    * アクロバットのデストラクタ
     */
     ~Acrobat();
 
     /**
-    * Acrobatの更新処理
+    * アクロバットの更新処理
     */
     void Update(float deltaTime, Player* player, Box* box);
 
     /**
-    * Acrobatの描画処理
+    * アクロバットの描画処理
     */
     void Draw() override;
 

@@ -1,26 +1,31 @@
 #pragma once
 #include "../BaseClass/BaseObject.h"
 
+/**
+* Player
+* BaseObjectを継承している
+* プレイヤークラス
+*/
 class Player : public BaseObject
 {
 public:
     /**
-    * Playerのコンストラクタ
+    * プレイヤーのコンストラクタ
     */
     Player();
 
     /**
-    * Playerのデストラクタ
+    * プレイヤーのデストラクタ
     */
     ~Player();
 
     /**
-    * Playerの更新処理
+    * プレイヤーの更新処理
     */
     void Update(float deltaTime) override;
 
     /**
-    * Playerの描画処理
+    * プレイヤーの描画処理
     */
     void Draw() override;
 
@@ -69,5 +74,4 @@ private:
 
     /** デルタタイム*/
     float deltaTime;
-
 };

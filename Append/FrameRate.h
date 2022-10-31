@@ -1,5 +1,9 @@
 #pragma once
 
+/**
+* FrameRate
+* フレームレート制御クラス
+*/
 class FrameRate
 {
 public:
