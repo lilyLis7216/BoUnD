@@ -42,6 +42,11 @@ private:
     */
     void Fade();
 
+    /**
+    * ロゴ動き
+    */
+    void LogoMove();
+
     /** フレームレート制御用*/
     FrameRate* frameRate;
 
@@ -77,4 +82,13 @@ private:
 
     /** 透明処理クールタイム*/
     float alphaCoolTime;
+
+    /** 跳ねるかどうか*/
+    bool isBound;
+
+    /** 跳ねる力*/
+    float jumpPower;
+
+    /** ロゴのy座標*/
+    float logoY;
 };

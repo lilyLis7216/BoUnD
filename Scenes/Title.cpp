@@ -10,9 +10,12 @@ Title::Title()
     : animCount(0)
     , animCoolTime(0)
     , animFrame(0)
-    ,deltaTime(0)
+    , deltaTime(0)
     , alpha(100)
     , alphaCoolTime(0.5f)
+    , isBound(false)
+    , jumpPower(0)
+    , logoY(150)
 {
     // フレームレート制御のインスタンス生成
     frameRate = new FrameRate();
@@ -80,6 +83,9 @@ void Title::Update()
     // 半透明処理
     Fade();
 
+    // ロゴの動き
+    LogoMove();
+
     // Enterが押されたら
     if (CheckHitKey(KEY_INPUT_RETURN) || Controller::StartInput())
     {
@@ -109,13 +115,13 @@ void Title::Draw()
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)alpha);
 
     // ゲーム画面への指示表示
-    UserInterface::UIText(550, 720, GetColor(0, 0, 0), "Start to  Play!");
+    UserInterface::UIText(550, 820, GetColor(0, 0, 0), "Start to  Play!");
 
     // 通常描画モードに戻す
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
     // ロゴの表示
-    DrawRotaGraph(960, 300, 3.0f, 0, logo, TRUE);
+    DrawRotaGraph(960, (int)logoY, 3.0f, 0, logo, TRUE);
 }
 
 void Title::CharaAnim()
@@ -154,4 +160,29 @@ void Title::Fade()
             alphaCoolTime = 0.5f;
         }
     }
+}
+
+void Title::LogoMove()
+{
+    if (logoY > 650)
+    {
+        isBound = true;
+    }
+    else
+    {
+        isBound = false;
+    }
+
+    if (isBound)
+    {
+        jumpPower = -14.0f;
+    }
+    else
+    {
+        jumpPower += 0.2f;
+        if (jumpPower > 30)jumpPower = 30;
+    }
+
+    // y軸にジャンプパワーを加算する
+    logoY += jumpPower;
 }
