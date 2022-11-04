@@ -51,8 +51,14 @@ public:
     */
     bool GetInBox() const { return inBox; }
 
-private:
+    /**
+    * €‚ñ‚Å‚¢‚é‚©‚Ç‚¤‚©‚Ìæ“¾
+    * 
+    * @return isDead
+    */
+    bool GetIsDead()const { return isDead; }
 
+private:
     /**
     * ˆÚ“®ˆ—
     */
@@ -95,4 +101,16 @@ private:
 
     /** ” ‚Ì’†‚©‚Ç‚¤‚©*/
     bool inBox;
+    
+    /** ˆÚ“®‚Å‚«‚é‚©‚Ç‚¤‚©*/
+    bool isMove;
+
+    /** €‚ñ‚Å‚¢‚é‚©‚Ç‚¤‚©*/
+    bool isDead;
+
+    /** Á–ÅŠÔ*/
+    float vanishTime;
+
+    /** Á–ÅŠÔ‰Šú‰»”’l*/
+    const float initVanishTime = 3.0f;
 };
