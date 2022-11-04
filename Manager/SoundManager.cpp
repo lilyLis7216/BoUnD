@@ -83,7 +83,11 @@ void SoundManager::StartSound(const int SEnum)
     int sound = instance->soundPool.at(SEnum);
 
     // sound‚ªÄ¶‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î
-    if (!CheckSoundMem(sound))
+    if (SEnum == 5)
+    {
+        PlaySoundMem(sound, DX_PLAYTYPE_BACK);
+    }
+    else if (!CheckSoundMem(sound))
     {
         // sound‚ğÄ¶‚·‚é
         PlaySoundMem(sound, DX_PLAYTYPE_BACK);

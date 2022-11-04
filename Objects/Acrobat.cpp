@@ -2,6 +2,7 @@
 #include "DxLib.h"
 #include "../Append/Collision.h"
 #include "../Manager/GameManager.h"
+#include "../Manager/SoundManager.h"
 #include "Player.h"
 #include "Box.h"
 
@@ -54,8 +55,10 @@ void Acrobat::Update(float deltaTime, Player* player, Box* box)
     // アニメーション
     Animation();
 
+    // プレイヤーとの当たり判定
     Collision::CollPtoA(player, this);
 
+    // 箱との当たり判定
     Collision::CollBtoA(box, this);
 
     // ヒットしたかどうかを保存する
@@ -91,6 +94,9 @@ void Acrobat::OnHit()
 
         // 最大コンボ数を増やす
         GameManager::AddMaxComb();
+
+        // 跳ねるサウンドを鳴らす
+        SoundManager::StartSound(5);
     }
 }
 
@@ -104,11 +110,8 @@ void Acrobat::Move()
         nowHit = false;
     }
 
-    //float tmp = (float)GetRand(5) + 10;
-
     if (isBound)
     {
-        //jumpPower = -tmp;
         jumpPower = -15.0f;
     }
     else

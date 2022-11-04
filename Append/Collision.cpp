@@ -48,7 +48,6 @@ void Collision::CollPtoA(Player* player, Acrobat* acrobat)
     {
         // “–‚½‚Á‚Ä‚é
         acrobat->OnHit();
-        SoundManager::StartSound(5);
     }
     else
     {
