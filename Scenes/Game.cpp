@@ -157,8 +157,8 @@ void Game::UI()
     UserInterface::UIText(1160, 40, whiteCr, "Score:%05d", GameManager::GetScore());
 
     // 残り自機数表示
-    UserInterface::UIBox(1600, 1900, 20, 120, 10, blackCr, skyCr);
-    UserInterface::UIText(1620, 40, whiteCr, "Life:%d", player->GetLife());
+    //UserInterface::UIBox(1600, 1900, 20, 120, 10, blackCr, skyCr);
+    //UserInterface::UIText(1620, 40, whiteCr, "Life:%d", player->GetLife());
 
     // fps確認用
     //DrawFormatString(36, 180, white, "FPS:%5.4f", deltaTime);
