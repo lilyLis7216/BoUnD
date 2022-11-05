@@ -58,6 +58,9 @@ void AcrobatManager::Update(float deltaTime, Player* player, Box* box)
         // アクロバットのインスタンスを作る
         AddAcrobat(new Acrobat);
 
+        // アクロバットの数を増やす
+        acrobatNum++;
+
         // クールタイムを設定する
         createInterval = CoolTime();
     }
@@ -71,15 +74,10 @@ void AcrobatManager::Update(float deltaTime, Player* player, Box* box)
         // poolの更新
         pool->Update(deltaTime, player, box);
         
-        if (pool->GetInBox())
+        if (pool->GetIsDead())
         {
             RemoveAcrobat(i);
-        }
-        if (pool->GetPosY() > 1080)
-        {
-            RemoveAcrobat(i);
-            player->Miss();
-            GameManager::ResetComb();
+            acrobatNum--;
         }
     }
 }
@@ -124,8 +122,8 @@ bool AcrobatManager::IsCreateAcrobat(float deltaTime)
     // 生成のクールタイムからデルタタイムを引く
     createInterval -= deltaTime;
 
-    // 生成のクールタイムがない状態でかつ現在の数が最大数より少なく、残り時間が3秒以上であれば
-    if (createInterval < 0 && acrobatNum < acrobatNumMax && GameManager::GetTimer() > 3.0f)
+    // 生成のクールタイムがない状態でかつ現在の数が最大数より少ければ
+    if (createInterval < 0 && acrobatNum < acrobatNumMax)
     {
         // 生成を許可する
         return true;
@@ -136,19 +134,23 @@ bool AcrobatManager::IsCreateAcrobat(float deltaTime)
 
 float AcrobatManager::CoolTime()
 {
-    float ct = 0;
+    float ct = 0.0f;
 
-    if (GameManager::GetTimer() > 20.0f)
+    if (GameManager::GetTimer() > 20)
     {
         ct = 3.0f;
     }
-    else if (GameManager::GetTimer() > 10.0f)
+    else if (GameManager::GetTimer() > 15)
+    {
+        ct = 3.5f;
+    }
+    else if (GameManager::GetTimer() > 10)
+    {
+        ct = 3.0f;
+    }
+    else if (GameManager::GetTimer() > 5)
     {
         ct = 2.0f;
-    }
-    else if (GameManager::GetTimer() > 1.0f)
-    {
-        ct = 1.5f;
     }
 
     return ct;

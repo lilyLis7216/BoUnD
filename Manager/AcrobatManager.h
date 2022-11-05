@@ -88,7 +88,7 @@ private:
     std::vector<Acrobat*> acrobatPool;
 
     /** アクロバットの最大数*/
-    static const int acrobatNumMax = 3;
+    static const int acrobatNumMax = 4;
 
     /** 現在のアクロバットの数*/
     static int acrobatNum;
