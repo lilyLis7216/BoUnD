@@ -15,7 +15,11 @@ Acrobat::Acrobat()
     , animCoolTime(0)
     , animFrame(0)
     , deltaTime(0)
-    , inBox(false)
+    , isMove(true)
+    , isMiss(false)
+    , isDead(false)
+    , vanishTime(3.0f)
+    , resetCombPrevCall(false)
 {
     posX = 300.0f;
     posY = 250.0f;
@@ -24,7 +28,9 @@ Acrobat::Acrobat()
     halfScaleX = scaleX / 2;
     halfScaleY = scaleY / 2;
     speed = 200.0f;
-    LoadDivGraph("Assets/Acrobat/acrobat.png", 2, 2, 1, 86, 150, walkAnim);
+    LoadDivGraph("Assets/Acrobat/acrobatWalkAnim.png", 2, 2, 1, 86, 134, walkAnim);
+    LoadDivGraph("Assets/Acrobat/acrobatSuccessAnim.png", 2, 2, 1, 86, 150, successAnim);
+    missGraph = LoadGraph("Assets/Acrobat/miss.png");
     image = walkAnim[0];
     rotate = (float)GetRand(3);
 }
@@ -46,17 +52,31 @@ void Acrobat::Update(float deltaTime, Player* player, Box* box)
     // メンバ変数のdeltaTimeに引数のdeltaTimeを入れる
     this->deltaTime = deltaTime;
 
-    // 移動処理
-    Move();
+    if (isMove)
+    {
+        // 移動処理
+        Move();
 
-    // 毎フレーム回転に加算する
-    rotate += 0.01f;
+        // 毎フレーム回転に加算する
+        rotate += 0.01f;
+
+        // プレイヤーとの当たり判定
+        Collision::CollPtoA(player, this);
+    }
+    else
+    {
+        vanishTime -= deltaTime;
+
+        if (vanishTime < 0)
+        {
+            isDead = true;
+        }
+
+        rotate = 0.0f;
+    }
 
     // アニメーション
     Animation();
-
-    // プレイヤーとの当たり判定
-    Collision::CollPtoA(player, this);
 
     // 箱との当たり判定
     Collision::CollBtoA(box, this);
@@ -100,6 +120,20 @@ void Acrobat::OnHit()
     }
 }
 
+void Acrobat::boxHit()
+{
+    // 動かない状態にする
+    isMove = false;
+
+    // スコアを500増やす
+    if (!prevHit)
+    {
+        GameManager::AddScore(500);
+        SoundManager::StartSound(7);
+        nowHit = true;
+    }
+}
+
 void Acrobat::Move()
 {
     posX += speed * deltaTime;
@@ -120,6 +154,18 @@ void Acrobat::Move()
         if (jumpPower > 30)jumpPower = 30;
     }
 
+    if (posY > 935)
+    {
+        isMove = false;
+        isMiss = true;
+        if (!resetCombPrevCall)
+        {
+            GameManager::ResetComb();
+            SoundManager::StartSound(6);
+            resetCombPrevCall = true;
+        }
+    }
+
     // y軸にジャンプパワーを加算する
     posY += jumpPower;
 }
@@ -132,10 +178,24 @@ void Acrobat::Animation()
     {
         animCount++;
 
-        animCoolTime = 1.0f;
+        animCoolTime = 0.5f;
     }
 
     animFrame = animCount % 2;
 
-    image = walkAnim[animFrame];
+    if (isMove)
+    {
+        image = walkAnim[animFrame];
+    }
+    else
+    {
+        if (isMiss)
+        {
+            image = missGraph;
+        }
+        else
+        {
+            image = successAnim[animFrame];
+        }
+    }
 }

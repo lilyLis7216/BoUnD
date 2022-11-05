@@ -42,14 +42,14 @@ public:
     /**
     * 箱に到達したときの処理
     */
-    void boxHit() { inBox = true; }
+    void boxHit();
 
     /**
-    * 箱の中かどうかの取得
+    * ミスしたかどうかの取得
     * 
-    * @return inBox
+    * @return isMiss
     */
-    bool GetInBox() const { return inBox; }
+    bool GetIsMiss() const { return isMiss; }
 
     /**
     * 死んでいるかどうかの取得
@@ -84,6 +84,9 @@ private:
     /** 歩きアニメーション*/
     int walkAnim[2] = { 0 };
 
+    /** 成功アニメーション*/
+    int successAnim[2] = { 0 };
+
     /** アニメーションカウント*/
     int animCount;
 
@@ -99,11 +102,14 @@ private:
     /** 回転*/
     float rotate;
 
-    /** 箱の中かどうか*/
-    bool inBox;
-    
     /** 移動できるかどうか*/
     bool isMove;
+
+    /** ミスしたかどうか*/
+    bool isMiss;
+
+    /** ミス時の画像*/
+    int missGraph;
 
     /** 死んでいるかどうか*/
     bool isDead;
@@ -111,6 +117,6 @@ private:
     /** 消滅時間*/
     float vanishTime;
 
-    /** 消滅時間初期化数値*/
-    const float initVanishTime = 3.0f;
+    /** 前フレームでリセットを呼び出したかどうか*/
+    bool resetCombPrevCall;
 };
