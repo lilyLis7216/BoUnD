@@ -12,15 +12,17 @@ SoundManager::SoundManager()
 
     AddSound("Assets/Sound/game.mp3");     // 1 ゲームBGM
 
-    AddSound("Assets/Sound/result1.mp3");  // 2 リザルトBGM
+    AddSound("Assets/Sound/result1.mp3");  // 2 リザルトBGM1
 
-    AddSound("Assets/Sound/move.mp3");     // 3 移動SE
+    AddSound("Assets/Sound/result2.mp3");  // 3 リザルトBGM2
 
-    AddSound("Assets/Sound/limit1.mp3");   // 4 移動限界SE
+    AddSound("Assets/Sound/limit.mp3");    // 4 移動限界SE
 
     AddSound("Assets/Sound/bounce.mp3");   // 5 跳ねるSE
 
     AddSound("Assets/Sound/clash.mp3");    // 6 激突SE
+
+    AddSound("Assets/Sound/success.mp3");  // 7 成功SE
 
     for (auto pool : instance->soundPool)
     {
@@ -82,11 +84,11 @@ void SoundManager::StartSound(const int SEnum)
     // soundにプールの場所を保存する
     int sound = instance->soundPool.at(SEnum);
 
-    // soundが再生されていなければ
-    if (SEnum == 5)
+    if (SEnum == 5 || SEnum == 6)
     {
         PlaySoundMem(sound, DX_PLAYTYPE_BACK);
     }
+    // soundが再生されていなければ
     else if (!CheckSoundMem(sound))
     {
         // soundを再生する
