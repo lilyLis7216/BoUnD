@@ -102,7 +102,7 @@ void Game::Update()
         // 全てのサウンドを止めて
         SoundManager::StopAll();
 
-        // シーンをタイトル画面に変更
+        // シーンをリザルト画面に変更
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
     }
 
