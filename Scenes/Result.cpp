@@ -119,12 +119,12 @@ void Result::Draw()
     UserInterface::UIBox(400, 1500, 300, 700, 20, GetColor(0, 0, 0), GetColor(0, 255, 255));
 
     // 最終スコアの表示
-    UserInterface::UIText(500, 350, yellowCr, "Score     %05d", GameManager::GetScore());
-    DrawLine(500, 450, 1350, 450, whiteCr, 10);
+    UserInterface::UIText(500, 350, yellowCr, "Score      %05d", GameManager::GetScore());
+    DrawLine(500, 450, 1400, 450, whiteCr, 10);
 
     // 最大コンボ数の表示
-    UserInterface::UIText(500, 500, yellowCr, "MaxComb     %02d", GameManager::GetMaxComb());
-    DrawLine(500, 600, 1350, 600, whiteCr, 10);
+    UserInterface::UIText(500, 500, yellowCr, "MaxComb      %02d", GameManager::GetMaxComb());
+    DrawLine(500, 600, 1400, 600, whiteCr, 10);
 
     // 赤色ピエロ表示
     DrawRotaGraph(1570, 440, 1.0f, 0, clownRed, TRUE, TRUE, TRUE);

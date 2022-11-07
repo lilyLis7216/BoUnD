@@ -109,19 +109,19 @@ void Title::Draw()
     DrawRotaGraph(1600, 850, 2.0f, 0, clownPurple, TRUE);
 
     // 水色ピエロ表示
-    DrawRotaGraph(300, 850, 2.0f, 0, clownSky, TRUE, TRUE);
+    DrawRotaGraph(350, 850, 2.0f, 0, clownSky, TRUE, TRUE);
     
     // 半透明描画モード
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)alpha);
 
     // ゲーム画面への指示表示
-    UserInterface::UIText(550, 820, GetColor(0, 0, 0), "Start to  Play!");
+    UserInterface::UIText(600, 820, GetColor(0, 0, 0), "Press to Play!");
 
     // 通常描画モードに戻す
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
     // ロゴの表示
-    DrawRotaGraph(960, (int)logoY, 3.0f, 0, logo, TRUE);
+    DrawRotaGraph(980, (int)logoY, 3.0f, 0, logo, TRUE);
 }
 
 void Title::CharaAnim()
