@@ -3,6 +3,7 @@
 #include "../Objects/Player.h"
 #include "GameManager.h"
 #include "DxLib.h"
+#include <time.h>
 
 /** AcrobatManagerのインスタンス*/
 AcrobatManager* AcrobatManager::instance;
@@ -55,8 +56,11 @@ void AcrobatManager::Update(float deltaTime, Player* player, Box* box)
     // 生成できる状態なら
     if (IsCreateAcrobat(deltaTime))
     {
+        srand((unsigned int)time(NULL));
+        int tmp = (rand() % 29 + 1) * 5 + 150;
+
         // アクロバットのインスタンスを作る
-        AddAcrobat(new Acrobat);
+        AddAcrobat(new Acrobat((float)tmp));
 
         // アクロバットの数を増やす
         acrobatNum++;
@@ -136,22 +140,21 @@ float AcrobatManager::CoolTime()
 {
     float ct = 0.0f;
 
-    if (GameManager::GetTimer() > 20)
+    int tmp = rand() % 3;
+
+    if (tmp == 0)
+    {
+        ct = 5.0f;
+    }
+    else if (tmp == 1)
+    {
+        ct = 4.0f;
+    }
+    else
     {
         ct = 3.0f;
     }
-    else if (GameManager::GetTimer() > 15)
-    {
-        ct = 3.5f;
-    }
-    else if (GameManager::GetTimer() > 10)
-    {
-        ct = 3.0f;
-    }
-    else if (GameManager::GetTimer() > 5)
-    {
-        ct = 2.0f;
-    }
+
 
     return ct;
 }
