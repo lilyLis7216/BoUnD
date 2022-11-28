@@ -6,7 +6,7 @@
 #include "Player.h"
 #include "Box.h"
 
-Acrobat::Acrobat()
+Acrobat::Acrobat(float x)
     : isBound(false)
     , jumpPower(-7.5f)
     , nowHit(false)
@@ -21,8 +21,8 @@ Acrobat::Acrobat()
     , vanishTime(3.0f)
     , resetCombPrevCall(false)
 {
-    posX = 300.0f;
-    posY = 250.0f;
+    posX = x;
+    posY = -100.0f;
     scaleX = 40.0f;
     scaleY = 120.0f;
     halfScaleX = scaleX / 2;
