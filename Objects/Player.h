@@ -29,18 +29,6 @@ public:
     */
     void Draw() override;
 
-    /**
-    * 自機失敗処理
-    */
-    void Miss() { life--; }
-
-    /**
-    * 残機の取得
-    * 
-    * @return int 残機
-    */
-    int GetLife() const { return life; }
-
 private:
     /**
     * 移動処理
@@ -56,9 +44,6 @@ private:
     * アニメーション処理
     */
     void Animation();
-
-    /** 残機*/
-    int life;
 
     /** 歩きアニメーション*/
     int walkAnim[2] = { 0 };

@@ -4,8 +4,7 @@
 #include "../Append/Controller.h"
 
 Player::Player()
-    : life(3)
-    , animCount(0)
+    : animCount(0)
     , animFrame(0)
     , deltaTime(0)
 {
