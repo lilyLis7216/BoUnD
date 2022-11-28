@@ -106,8 +106,8 @@ void Game::Update()
         SceneManager::ChangeScene(SceneManager::SceneState::Scene_Result);
     }
 
-    // 残機が無くなるか、タイマーが0になったら
-    if (player->GetLife() < 1 || GameManager::GetTimer() < 0)
+    // タイマーが0になったら
+    if ( GameManager::GetTimer() < 0)
     {
         // 全てのサウンドを止めて
         SoundManager::StopAll();
@@ -140,25 +140,32 @@ void Game::UI()
     // フォントサイズの指定
     SetFontSize(60);
 
+    int tmp1 = 920;
+    int tmp2 = 1020;
+    int tmp3 = 940;
     // 残りタイム表示
-    UserInterface::UIBox(20, 320, 20, 120, 10, blackCr, skyCr);
-    UserInterface::UIText(40, 40, whiteCr, "Time:%d", (int)GameManager::GetTimer());
+    UserInterface::UIBox(170, 470, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(190, 40, whiteCr, "Time:%d", (int)GameManager::GetTimer());
+    //UserInterface::UIBox(170, 470, tmp1, tmp2, 10, blackCr, skyCr);
+    //UserInterface::UIText(190, tmp3, whiteCr, "Time:%d", (int)GameManager::GetTimer());
 
     // コンボ表示
-    UserInterface::UIBox(340, 660, 20, 120, 10, blackCr, skyCr);
-    UserInterface::UIText(360, 40, whiteCr, "Comb:%02d", GameManager::GetComb());
+    UserInterface::UIBox(490, 810, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(510, 40, whiteCr, "Comb:%02d", GameManager::GetComb());
+    //UserInterface::UIBox(490, 810, tmp1, tmp2, 10, blackCr, skyCr);
+    //UserInterface::UIText(510, tmp3, whiteCr, "Comb:%02d", GameManager::GetComb());
 
     // 最大コンボ表示
-    UserInterface::UIBox(680, 1120, 20, 120, 10, blackCr, skyCr);
-    UserInterface::UIText(700, 40, whiteCr, "MaxComb:%02d", GameManager::GetMaxComb());
+    UserInterface::UIBox(830, 1270, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(850, 40, whiteCr, "MaxComb:%02d", GameManager::GetMaxComb());
+    //UserInterface::UIBox(830, 1270, tmp1, tmp2, 10, blackCr, skyCr);
+    //UserInterface::UIText(850, tmp3, whiteCr, "MaxComb:%02d", GameManager::GetMaxComb());
 
     // スコア表示
-    UserInterface::UIBox(1140, 1580, 20, 120, 10, blackCr, skyCr);
-    UserInterface::UIText(1160, 40, whiteCr, "Score:%05d", GameManager::GetScore());
-
-    // 残り自機数表示
-    //UserInterface::UIBox(1600, 1900, 20, 120, 10, blackCr, skyCr);
-    //UserInterface::UIText(1620, 40, whiteCr, "Life:%d", player->GetLife());
+    UserInterface::UIBox(1290, 1730, 20, 120, 10, blackCr, skyCr);
+    UserInterface::UIText(1310, 40, whiteCr, "Score:%05d", GameManager::GetScore());
+    //UserInterface::UIBox(1290, 1730, tmp1, tmp2, 10, blackCr, skyCr);
+    //UserInterface::UIText(1310, tmp3, whiteCr, "Score:%05d", GameManager::GetScore());
 
     // fps確認用
     //DrawFormatString(36, 180, white, "FPS:%5.4f", deltaTime);
