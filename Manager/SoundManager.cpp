@@ -24,10 +24,20 @@ SoundManager::SoundManager()
 
     AddSound("Assets/Sound/success.mp3");  // 7 成功SE
 
-    for (auto pool : instance->soundPool)
+    //for (auto pool : instance->soundPool)
+    //{
+    //    // サウンドのボリュームを100に設定する
+    //    ChangeVolumeSoundMem(100, pool);
+    //}
+
+    auto pool = instance->soundPool;
+    for (int i = 0; i < 4; i++)
     {
-        // サウンドのボリュームを100に設定する
-        ChangeVolumeSoundMem(100, pool);
+        ChangeVolumeSoundMem(100, pool[i]);
+    }
+    for (int i = 4; i < 8; i++)
+    {
+        ChangeVolumeSoundMem(200, pool[i]);
     }
 }
 
