@@ -22,7 +22,7 @@ Acrobat::Acrobat(float x)
     , resetCombPrevCall(false)
 {
     posX = x;
-    posY = -100.0f;
+    posY = 200.0f;
     scaleX = 40.0f;
     scaleY = 120.0f;
     halfScaleX = scaleX / 2;
